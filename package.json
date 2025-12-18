@@ -71,9 +71,9 @@
   "scripts": {
     "start": "node build/src/server/server.js",
     "start:prof": "node --prof build/src/server/server.js",
-    "build": "npm run make:static && npm run build:server && npm run build:client",
-    "build:client": "npm run make:cards && cross-env NODE_ENV=production webpack",
+    "build": "npm run build:server && npm run make:static && npm run make:cards && npm run webpack:prod",
     "build:server": "tsc --build src/tsconfig.json",
+    "webpack:prod": "cross-env NODE_ENV=production webpack",
     "build:test": "tsc --build tests/tsconfig.json",
     "build:tests": "tsc --build tests/tsconfig.json",
     "clean": "rimraf ./build/ ./src/genfiles/",
