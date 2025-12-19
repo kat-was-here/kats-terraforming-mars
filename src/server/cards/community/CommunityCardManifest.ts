@@ -1,5 +1,7 @@
 import {AerospaceMission} from './AerospaceMission';
 import {AgricolaInc} from './AgricolaInc';
+import {Aristarchus} from './Aristarchus';
+import {Aerotech} from './Aerotech';
 import {Athena} from './Athena';
 import {ByElection} from './ByElection';
 import {CardName} from '../../../common/cards/CardName';
@@ -34,6 +36,8 @@ export const COMMUNITY_CARD_MANIFEST = new ModuleManifest({
     [CardName.JUNK_VENTURES]: {Factory: JunkVentures},
     [CardName.ERIS]: {Factory: Eris, compatibility: 'ares'},
     [CardName.ATHENA]: {Factory: Athena, compatibility: 'ares'},
+    [CardName.ARISTARCHUS]: {Factory: Aristarchus},
+    [CardName.AEROTECH]: {Factory: Aerotech},
   },
   preludeCards: {
     [CardName.RESEARCH_GRANT]: {Factory: ResearchGrant},
