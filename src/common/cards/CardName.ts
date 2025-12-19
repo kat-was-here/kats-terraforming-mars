@@ -356,6 +356,7 @@ export enum CardName {
   THORGATE = 'Thorgate',
   UNITED_NATIONS_MARS_INITIATIVE = 'United Nations Mars Initiative',
   ACQUIRED_SPACE_AGENCY = 'Acquired Space Agency',
+
   // Preludes:
   ALLIED_BANK = 'Allied Bank',
   BIOFUELS = 'Biofuels',
@@ -591,6 +592,8 @@ export enum CardName {
   JUNK_VENTURES = 'Junk Ventures',
   ERIS = 'Eris',
   ATHENA = 'Athena',
+  AEROTECH = 'Aerotech',
+  ARISTARCHUS = 'Aristarchus',
 
   // Community preludes
   VALUABLE_GASES = 'Valuable Gases',
