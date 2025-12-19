@@ -12,7 +12,7 @@ export class ProcessorFactory extends ActionCard implements IProjectCard {
       name: CardName.PROCESSOR_FACTORY,
       type: CardType.ACTIVE,
       tags: [Tag.MOON, Tag.BUILDING],
-      cost: 8,
+      cost: 5,
 
       action: {
         spend: {steel: 1},

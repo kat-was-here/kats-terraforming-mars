@@ -24,7 +24,7 @@ export class MarsNomads extends Card implements IActionCard {
     super({
       type: CardType.ACTIVE,
       name: CardName.MARS_NOMADS,
-      cost: 13,
+      cost: 14,
 
       metadata: {
         cardNumber: 'X59',

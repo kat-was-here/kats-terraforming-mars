@@ -11,7 +11,7 @@ export class Mine extends Card implements IProjectCard {
       type: CardType.AUTOMATED,
       name: CardName.MINE,
       tags: [Tag.BUILDING],
-      cost: 4,
+      cost: 5,
 
       behavior: {
         production: {steel: 1},

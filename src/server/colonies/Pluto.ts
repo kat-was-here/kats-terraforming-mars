@@ -7,9 +7,9 @@ export class Pluto extends Colony {
     super({
       name: ColonyName.PLUTO,
       build: {
-        description: 'Draw 2 cards',
+        description: 'Draw 1 cards',
         type: ColonyBenefit.DRAW_CARDS,
-        quantity: [2, 2, 2],
+        quantity: [1, 1, 1],
       },
       trade: {
         description: 'Draw n cards',

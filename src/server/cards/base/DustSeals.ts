@@ -9,7 +9,7 @@ export class DustSeals extends Card implements IProjectCard {
     super({
       type: CardType.AUTOMATED,
       name: CardName.DUST_SEALS,
-      cost: 2,
+      cost: 1,
       victoryPoints: 1,
 
       requirements: {oceans: 3, max},

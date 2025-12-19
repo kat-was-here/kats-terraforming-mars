@@ -12,7 +12,7 @@ export class RustEatingBacteria extends ActionCard implements IProjectCard {
       name: CardName.RUST_EATING_BACTERIA,
       type: CardType.ACTIVE,
       tags: [Tag.MICROBE],
-      cost: 7,
+      cost: 4,
 
       resourceType: CardResource.MICROBE,
       victoryPoints: {resourcesHere: {}, per: 3},

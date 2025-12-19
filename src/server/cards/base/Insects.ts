@@ -11,7 +11,7 @@ export class Insects extends Card implements IProjectCard {
       type: CardType.AUTOMATED,
       name: CardName.INSECTS,
       tags: [Tag.MICROBE],
-      cost: 9,
+      cost: 13,
 
       behavior: {
         production: {plants: {tag: Tag.PLANT}},

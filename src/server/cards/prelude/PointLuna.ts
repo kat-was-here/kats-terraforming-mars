@@ -11,7 +11,7 @@ export class PointLuna extends CorporationCard implements ICorporationCard {
     super({
       name: CardName.POINT_LUNA,
       tags: [Tag.SPACE, Tag.EARTH],
-      startingMegaCredits: 38,
+      startingMegaCredits: 14,
 
       behavior: {
         production: {titanium: 1},
@@ -19,7 +19,7 @@ export class PointLuna extends CorporationCard implements ICorporationCard {
 
       metadata: {
         cardNumber: 'R10',
-        description: 'You start with 1 titanium production and 38 M€.',
+        description: 'You start with 1 titanium production and 14 M€.',
         renderData: CardRenderer.builder((b) => {
           b.br;
           b.production((pb) => pb.titanium(1)).nbsp.megacredits(38);

@@ -11,7 +11,7 @@ export class CloudSeeding extends Card implements IProjectCard {
     super({
       type: CardType.AUTOMATED,
       name: CardName.CLOUD_SEEDING,
-      cost: 11,
+      cost: 10,
 
       behavior: {
         production: {megacredits: -1, plants: 2},

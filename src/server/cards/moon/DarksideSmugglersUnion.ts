@@ -18,7 +18,7 @@ export class DarksideSmugglersUnion extends Card implements IProjectCard, IActio
       name: CardName.DARKSIDE_SMUGGLERS_UNION,
       type: CardType.ACTIVE,
       tags: [Tag.SPACE],
-      cost: 17,
+      cost: 19,
 
       behavior: {
         moon: {logisticsRate: 1},

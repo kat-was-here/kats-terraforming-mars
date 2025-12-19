@@ -11,7 +11,7 @@ export class FuelFactory extends Card implements IProjectCard {
       type: CardType.AUTOMATED,
       name: CardName.FUEL_FACTORY,
       tags: [Tag.BUILDING],
-      cost: 6,
+      cost: 8,
 
       behavior: {
         production: {energy: -1, megacredits: 1, titanium: 1},

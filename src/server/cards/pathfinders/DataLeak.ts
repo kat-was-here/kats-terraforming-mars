@@ -10,7 +10,7 @@ export class DataLeak extends Card implements IProjectCard {
     super({
       type: CardType.EVENT,
       name: CardName.DATA_LEAK,
-      cost: 5,
+      cost: 6,
 
       behavior: {
         addResourcesToAnyCard: {count: 5, type: CardResource.DATA},

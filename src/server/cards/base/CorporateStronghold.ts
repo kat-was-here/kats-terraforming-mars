@@ -17,7 +17,7 @@ export class CorporateStronghold extends Card implements IProjectCard {
         production: {energy: -1, megacredits: 3},
         city: {},
       },
-      victoryPoints: -2,
+      victoryPoints: -1,
 
       metadata: {
         cardNumber: '182',

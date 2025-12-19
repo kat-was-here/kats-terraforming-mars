@@ -15,7 +15,7 @@ export class SpaceDebrisCleaningOperation extends Card implements IProjectCard {
     super({
       type: CardType.EVENT,
       name: CardName.SPACE_DEBRIS_CLEANING_OPERATION,
-      cost: 7,
+      cost: 10,
       tags: [Tag.MARS, Tag.SPACE],
       requirements: {tag: Tag.SPACE, count: 4, all},
 

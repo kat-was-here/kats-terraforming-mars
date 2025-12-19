@@ -12,7 +12,7 @@ export class InventionContest extends Card implements IProjectCard {
       type: CardType.EVENT,
       name: CardName.INVENTION_CONTEST,
       tags: [Tag.SCIENCE],
-      cost: 2,
+      cost: 3,
 
       behavior: {
         drawCard: {count: 3, keep: 1},

@@ -12,7 +12,7 @@ export class OffWorldCityLiving extends Card implements IProjectCard {
       name: CardName.OFF_WORLD_CITY_LIVING,
       type: CardType.AUTOMATED,
       tags: [Tag.CITY, Tag.SPACE],
-      cost: 35,
+      cost: 31,
       victoryPoints: {cities: {}, all: true, per: 3},
 
       behavior: {

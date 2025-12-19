@@ -17,14 +17,14 @@ export class LakefrontResorts extends CorporationCard implements ICorporationCar
     super({
       name: CardName.LAKEFRONT_RESORTS,
       tags: [Tag.BUILDING],
-      startingMegaCredits: 54,
+      startingMegaCredits: 50,
 
       metadata: {
         cardNumber: 'R38',
         description: 'You start with 54 M€.',
         renderData: CardRenderer.builder((b) => {
           b.br.br.br;
-          b.megacredits(54);
+          b.megacredits(50);
           b.corpBox('effect', (ce) => {
             ce.vSpace(Size.MEDIUM);
             ce.effect('When any ocean tile is placed, increase your M€ production 1 step. Your bonus for placing adjacent to oceans is 3M€ instead of 2 M€.', (eb) => {

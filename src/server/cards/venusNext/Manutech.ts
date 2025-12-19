@@ -11,7 +11,7 @@ export class Manutech extends CorporationCard implements ICorporationCard {
     super({
       name: CardName.MANUTECH,
       tags: [Tag.BUILDING],
-      startingMegaCredits: 35,
+      startingMegaCredits: 25,
 
       behavior: {
         production: {steel: 1},
@@ -19,10 +19,10 @@ export class Manutech extends CorporationCard implements ICorporationCard {
 
       metadata: {
         cardNumber: 'R23',
-        description: 'You start with 1 steel production, and 35 M€.',
+        description: 'You start with 1 steel production, and 25 M€.',
         renderData: CardRenderer.builder((b) => {
           b.br.br;
-          b.production((pb) => pb.steel(1)).nbsp.megacredits(35);
+          b.production((pb) => pb.steel(1)).nbsp.megacredits(25);
           b.corpBox('effect', (ce) => {
             ce.effect('For each step you increase the production of a resource, including this, you also gain that resource.', (eb) => {
               eb.production((pb) => pb.wild(1)).startEffect.wild(1);

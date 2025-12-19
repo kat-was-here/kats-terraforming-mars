@@ -8,7 +8,7 @@ import {CardRenderer} from '../render/CardRenderer';
 export class MiningColony extends Card implements IProjectCard {
   constructor() {
     super({
-      cost: 20,
+      cost: 21,
       tags: [Tag.SPACE],
       name: CardName.MINING_COLONY,
       type: CardType.AUTOMATED,

@@ -19,7 +19,7 @@ export class Aridor extends CorporationCard implements ICorporationCard {
 
       metadata: {
         cardNumber: 'R20',
-        description: 'You start with 40 M€. As your first action, put an additional Colony Tile of your choice into play',
+        description: 'You start with 30 M€. As your first action, put an additional Colony Tile of your choice into play',
         renderData: CardRenderer.builder((b) => {
           b.br.br;
           b.megacredits(40).nbsp.colonyTile();

@@ -15,14 +15,14 @@ export class GeneRepair extends Card implements IProjectCard {
       victoryPoints: 2,
 
       behavior: {
-        production: {megacredits: 2},
+        production: {megacredits: 4},
       },
 
-      requirements: {tag: Tag.SCIENCE, count: 3},
+      requirements: {tag: Tag.SCIENCE, count: 5},
       metadata: {
         cardNumber: '091',
-        renderData: CardRenderer.builder((b) => b.production((pb) => pb.megacredits(2))),
-        description: 'Requires 3 science tags. Increase your M€ production 2 steps.',
+        renderData: CardRenderer.builder((b) => b.production((pb) => pb.megacredits(4))),
+        description: 'Requires 5 science tags. Increase your M€ production 4 steps.',
       },
     });
   }

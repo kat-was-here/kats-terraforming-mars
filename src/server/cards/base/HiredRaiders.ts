@@ -16,7 +16,7 @@ export class HiredRaiders extends Card implements IProjectCard {
     super({
       type: CardType.EVENT,
       name: CardName.HIRED_RAIDERS,
-      cost: 1,
+      cost: 3,
 
       metadata: {
         cardNumber: '124',

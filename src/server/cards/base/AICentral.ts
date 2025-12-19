@@ -14,7 +14,7 @@ export class AICentral extends ActionCard implements IProjectCard {
       cost: 21,
 
       behavior: {
-        production: {energy: -1},
+        production: {energy: -2},
       },
 
       action: {
@@ -23,16 +23,16 @@ export class AICentral extends ActionCard implements IProjectCard {
 
       victoryPoints: 1,
 
-      requirements: {tag: Tag.SCIENCE, count: 6},
+      requirements: {tag: Tag.SCIENCE, count: 5},
       metadata: {
         description: {
-          text: 'Requires 3 science tags to play. Decrease your energy production 1 step.',
+          text: 'Requires 5 science tags to play. Decrease your energy production 2 steps.',
           align: 'left',
         },
         cardNumber: '208',
         renderData: CardRenderer.builder((b) => {
           b.action('Draw 2 cards.', (ab) => ab.empty().startAction.cards(2)).br;
-          b.production((pb) => pb.minus().energy(1));
+          b.production((pb) => pb.minus().energy(2));
         }),
       },
     });

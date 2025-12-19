@@ -15,7 +15,7 @@ export class MediaArchives extends Card implements IProjectCard {
       type: CardType.AUTOMATED,
       name: CardName.MEDIA_ARCHIVES,
       tags: [Tag.EARTH],
-      cost: 8,
+      cost: 9,
 
       metadata: {
         cardNumber: '107',

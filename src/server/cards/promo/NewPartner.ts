@@ -18,14 +18,14 @@ export class NewPartner extends PreludeCard {
         renderData: CardRenderer.builder((b) => {
           b.production((pb) => pb.megacredits(1)).prelude().asterix();
         }),
-        description: 'Raise your M€ production 1 step. Immediately draw 2 prelude cards. Play 1 of them, and discard the other.',
+        description: 'Raise your M€ production 1 step. Immediately draw 3 prelude cards. Play 1 of them, and discard the other.',
       },
     });
   }
 
   public override bespokeCanPlay(player: IPlayer) {
     const game = player.game;
-    if (!game.preludeDeck.canDraw(2)) {
+    if (!game.preludeDeck.canDraw(3)) {
       this.warnings.add('deckTooSmall');
     }
     return true;
@@ -33,7 +33,7 @@ export class NewPartner extends PreludeCard {
 
   public override bespokePlay(player: IPlayer) {
     const game = player.game;
-    const cards = game.preludeDeck.drawN(game, 2);
+    const cards = game.preludeDeck.drawN(game, 3);
     return PreludesExpansion.selectPreludeToPlay(player, cards);
   }
 }

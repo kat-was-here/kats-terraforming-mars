@@ -13,7 +13,7 @@ export class HighTempSuperconductors extends Card implements IProjectCard {
     super({
       type: CardType.ACTIVE,
       name: CardName.HIGH_TEMP_SUPERCONDUCTORS,
-      cost: 10,
+      cost: 12,
       tags: [Tag.POWER, Tag.SCIENCE],
 
       requirements: {party: PartyName.KELVINISTS},

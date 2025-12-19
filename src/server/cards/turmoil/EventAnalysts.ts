@@ -12,7 +12,7 @@ export class EventAnalysts extends Card implements IProjectCard {
       type: CardType.ACTIVE,
       name: CardName.EVENT_ANALYSTS,
       tags: [Tag.SCIENCE],
-      cost: 5,
+      cost: 6,
 
       behavior: {
         turmoil: {influenceBonus: 1},

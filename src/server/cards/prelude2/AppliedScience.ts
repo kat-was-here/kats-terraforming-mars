@@ -14,7 +14,7 @@ export class AppliedScience extends ActivePreludeCard implements IActionCard {
       resourceType: CardResource.SCIENCE,
 
       behavior: {
-        addResources: 6,
+        addResources: 8,
       },
 
       action: {
@@ -46,9 +46,9 @@ export class AppliedScience extends ActivePreludeCard implements IActionCard {
           b.action('Remove 1 resource here to either add 1 resource to ANY CARD WITH A RESOURCE or gain 1 standard resource.', (ab) => {
             ab.resource(CardResource.SCIENCE).startAction.wild(1).asterix();
           }).br;
-          b.resource(CardResource.SCIENCE, {amount: 6, digit}).br;
+          b.resource(CardResource.SCIENCE, {amount: 8, digit}).br;
         }),
-        description: 'Add 6 science resources here.',
+        description: 'Add 8 science resources here.',
       },
     });
   }

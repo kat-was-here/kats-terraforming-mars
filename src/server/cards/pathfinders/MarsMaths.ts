@@ -19,9 +19,9 @@ export class MarsMaths extends CorporationCard implements ICorporationCard {
 
       metadata: {
         cardNumber: 'PfC10',
-        description: 'You start with 40 M€. As your first action, draw 2 cards',
+        description: 'You start with 38 M€. As your first action, draw 2 cards',
         renderData: CardRenderer.builder((b) => {
-          b.megacredits(40).nbsp.cards(2).br;
+          b.megacredits(38).nbsp.cards(2).br;
           b.effect('At the beginning of the Research phase, you draw 5 cards, but may STILL only buy 4 cards. If you are drafting, keep 2 cards for your first draft.', (eb) => {
             eb.empty().startEffect.plus().cards(1).asterix();
           }).br;

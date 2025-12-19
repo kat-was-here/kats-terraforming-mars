@@ -16,7 +16,7 @@ export class SulphurEatingBacteria extends Card implements IActionCard {
       name: CardName.SULPHUR_EATING_BACTERIA,
       type: CardType.ACTIVE,
       tags: [Tag.VENUS, Tag.MICROBE],
-      cost: 6,
+      cost: 11,
       resourceType: CardResource.MICROBE,
 
       requirements: {venus: 6},

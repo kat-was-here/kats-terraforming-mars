@@ -11,7 +11,7 @@ export class DuskLaserMining extends Card implements IProjectCard {
     super({
       type: CardType.AUTOMATED,
       name: CardName.DUSK_LASER_MINING,
-      cost: 8,
+      cost: 11,
       tags: [Tag.SPACE],
 
       behavior: {

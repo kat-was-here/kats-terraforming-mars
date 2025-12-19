@@ -12,7 +12,7 @@ export class AntiGravityTechnology extends Card implements IProjectCard {
       name: CardName.ANTI_GRAVITY_TECHNOLOGY,
       tags: [Tag.SCIENCE],
       cost: 14,
-      victoryPoints: 3,
+      victoryPoints: 2,
 
       requirements: {tag: Tag.SCIENCE, count: 7},
       cardDiscount: {amount: 2},

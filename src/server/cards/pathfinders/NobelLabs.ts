@@ -15,9 +15,9 @@ export class NobelLabs extends Card implements IProjectCard, IActionCard {
     super({
       type: CardType.ACTIVE,
       name: CardName.NOBEL_LABS,
-      cost: 8,
+      cost: 9,
       tags: [Tag.SCIENCE],
-      requirements: {tag: Tag.SCIENCE, count: 4},
+      requirements: {tag: Tag.SCIENCE, count: 5},
 
       metadata: {
         cardNumber: 'Pf60',
@@ -26,7 +26,7 @@ export class NobelLabs extends Card implements IProjectCard, IActionCard {
             eb.empty().startAction.resource(CardResource.MICROBE, {amount: 2, digit}).slash().resource(CardResource.DATA, {amount: 2, digit}).slash().resource(CardResource.FLOATER, {amount: 2, digit}).asterix();
           });
         }),
-        description: 'Requires 4 science tags.',
+        description: 'Requires 5 science tags.',
       },
     });
   }

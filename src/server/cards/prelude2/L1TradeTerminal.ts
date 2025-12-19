@@ -15,7 +15,7 @@ export class L1TradeTerminal extends Card {
       type: CardType.ACTIVE,
       tags: [Tag.SPACE],
       cost: 25,
-      victoryPoints: 2,
+      victoryPoints: 1,
 
       behavior: {
         colonies: {

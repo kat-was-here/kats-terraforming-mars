@@ -10,7 +10,7 @@ export class UNMIContractor extends PreludeCard {
       tags: [Tag.EARTH],
 
       behavior: {
-        drawCard: 1,
+        drawCard: 2,
         tr: 3,
       },
 
@@ -18,9 +18,9 @@ export class UNMIContractor extends PreludeCard {
         cardNumber: 'P34',
         renderData: CardRenderer.builder((b) => {
           b.tr(3).br;
-          b.cards(1);
+          b.cards(2);
         }),
-        description: 'Increase your TR 3 steps. Draw a card.',
+        description: 'Increase your TR 3 steps. Draw two cards.',
       },
     });
   }

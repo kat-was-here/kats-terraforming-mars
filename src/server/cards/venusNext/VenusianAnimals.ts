@@ -16,7 +16,7 @@ export class VenusianAnimals extends Card implements IProjectCard {
       tags: [Tag.VENUS, Tag.ANIMAL, Tag.SCIENCE],
       cost: 15,
       resourceType: CardResource.ANIMAL,
-      victoryPoints: {resourcesHere: {}},
+      victoryPoints: {resourcesHere: {}, per: 2},
 
       requirements: {venus: 18},
       metadata: {
@@ -25,7 +25,7 @@ export class VenusianAnimals extends Card implements IProjectCard {
           b.effect('When you play a science tag, including this, add 1 animal to this card.', (eb)=> {
             eb.tag(Tag.SCIENCE).startEffect.resource(CardResource.ANIMAL);
           }).br;
-          b.vpText('1 VP per animal on this card.');
+          b.vpText('1 VP per 2 animals on this card.');
         }),
         description: 'Requires Venus 18%',
       },

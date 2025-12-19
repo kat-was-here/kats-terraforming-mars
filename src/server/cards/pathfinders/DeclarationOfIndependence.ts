@@ -13,7 +13,7 @@ export class DeclarationOfIndependence extends Card implements IProjectCard {
       cost: 20,
       tags: [Tag.MARS],
       requirements: {tag: Tag.MARS, count: 6},
-      victoryPoints: 4,
+      victoryPoints: 5,
 
       behavior: {
         turmoil: {sendDelegates: {count: 2}},

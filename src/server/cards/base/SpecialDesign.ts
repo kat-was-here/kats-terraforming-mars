@@ -11,7 +11,7 @@ export class SpecialDesign extends Card implements IProjectCard {
       type: CardType.EVENT,
       name: CardName.SPECIAL_DESIGN,
       tags: [Tag.SCIENCE],
-      cost: 4,
+      cost: 1,
       globalParameterRequirementBonus: {steps: 2, nextCardOnly: true},
 
       metadata: {

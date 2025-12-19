@@ -38,8 +38,8 @@ export class CollegiumCopernicus extends CorporationCard implements ICorporation
           b.effect('When you play a card with a science tag (including this) Add 1 data to ANY card.', (eb) => {
             eb.tag(Tag.SCIENCE).asterix().startEffect.resource(CardResource.DATA).asterix();
           }).br;
-          b.action('Spend 3 data from this card to trade.', (eb) => {
-            eb.resource(CardResource.DATA, 3).startAction.trade();
+          b.action('Spend 1 data from this card to trade.', (eb) => {
+            eb.resource(CardResource.DATA, 1).startAction.trade();
           });
         }),
       },

@@ -15,7 +15,7 @@ export class WorldGovernmentAdvisor extends PreludeCard implements IActionCard {
       tags: [Tag.EARTH],
 
       behavior: {
-        tr: 2,
+        tr: 1,
         drawCard: 1,
       },
 
@@ -25,9 +25,9 @@ export class WorldGovernmentAdvisor extends PreludeCard implements IActionCard {
           b.action('RAISE 1 GLOBAL PARAMETER WITHOUT GETTING ANY TR OR OTHER BONUSES.', (ab) => {
             ab.empty().startAction.oceans(1).oxygen(1).temperature(1).venus(1).asterix();
           }).br;
-          b.tr(2).cards(1);
+          b.tr(1).cards(1);
         }),
-        description: 'Raise your TR 2 steps. Draw 1 card.',
+        description: 'Raise your TR 1 steps. Draw 1 card.',
       },
     });
   }

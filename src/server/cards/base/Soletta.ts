@@ -11,7 +11,7 @@ export class Soletta extends Card implements IProjectCard {
       type: CardType.AUTOMATED,
       name: CardName.SOLETTA,
       tags: [Tag.SPACE],
-      cost: 35,
+      cost: 32,
 
       behavior: {
         production: {heat: 7},

@@ -18,7 +18,7 @@ export class DarksideIncubationPlant extends Card implements IActionCard, IProje
       name: CardName.DARKSIDE_INCUBATION_PLANT,
       type: CardType.ACTIVE,
       tags: [Tag.MICROBE, Tag.MOON],
-      cost: 11,
+      cost: 14,
 
       resourceType: CardResource.MICROBE,
       victoryPoints: {resourcesHere: {}, per: 2},

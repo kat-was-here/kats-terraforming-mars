@@ -20,15 +20,15 @@ export class ProjectEden extends PreludeCard {
       metadata: {
         cardNumber: 'P58',
         renderData: CardRenderer.builder((b) => {
-          b.oceans(1).city().greenery().text('-3').cards(1);
+          b.oceans(1).city().greenery().text('-5').cards(1);
         }),
-        description: 'Place 1 ocean tile, 1 city tile, and 1 greenery tile. Discard 3 cards.',
+        description: 'Place 1 ocean tile, 1 city tile, and 1 greenery tile. Discard 5 cards.',
       },
     });
   }
 
   public override bespokeCanPlay(player: IPlayer): boolean {
-    if (player.cardsInHand.length >= 3 && player.canAfford({cost: 0, tr: {oceans: 1, oxygen: 1}})) {
+    if (player.cardsInHand.length >= 5 && player.canAfford({cost: 0, tr: {oceans: 1, oxygen: 1}})) {
       if (!player.game.canAddOcean()) {
         this.warnings.add('maxoceans');
       }
@@ -79,10 +79,10 @@ export class ProjectEden extends PreludeCard {
     }
     if (!this.selected.includes('discard')) {
       options.push(
-        new SelectOption('Discard 3 cards').andThen(() => {
+        new SelectOption('Discard 5 cards').andThen(() => {
           this.selected.push('discard');
           player.game
-            .defer(new DiscardCards(player, 3, 3, 'Select 3 cards to discard'))
+            .defer(new DiscardCards(player, 5, 5, 'Select 5 cards to discard'))
             .andThen(() => this.selectNextAction(player));
           return undefined;
         }),

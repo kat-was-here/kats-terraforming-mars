@@ -16,7 +16,7 @@ export class PreliminaryDarkside extends Card implements IProjectCard {
       name: CardName.PRELIMINARY_DARKSIDE,
       type: CardType.EVENT,
       tags: [Tag.MOON],
-      cost: 13,
+      cost: 15,
 
       behavior: {
         moon: {miningRate: 1},

@@ -27,8 +27,8 @@ export class PolderTechDutch extends CorporationCard implements ICorporationCard
         description: 'You start with 35 M€. As your first action, place an ocean tile and a greenery tile next to each other IGNORING GREENERY PLACEMENT RESTRICTIONS. Raise oxygen 1 step.',
         renderData: CardRenderer.builder((b) => {
           b.megacredits(35).oceans(1, {size: Size.SMALL}).greenery({size: Size.SMALL}).asterix().br;
-          b.effect('When you place an ocean tile, gain 1 energy.', (eb) => eb.oceans(1, {size: Size.SMALL}).startEffect.energy(1)).br;
-          b.effect('When you place a greenery, gain 1 plant.', (eb) => eb.greenery({size: Size.SMALL}).startEffect.plants(1)).br;
+          b.effect('When you place an ocean tile, gain 2 energy.', (eb) => eb.oceans(1, {size: Size.SMALL}).startEffect.energy(2)).br;
+          b.effect('When you place a greenery, gain 2 plants.', (eb) => eb.greenery({size: Size.SMALL}).startEffect.plants(2)).br;
         }),
       },
     });
@@ -70,10 +70,10 @@ export class PolderTechDutch extends CorporationCard implements ICorporationCard
       return;
     }
     if (space.tile?.tileType === TileType.OCEAN) {
-      cardOwner.stock.add(Resource.ENERGY, 1, {log: true, from: {card: this}});
+      cardOwner.stock.add(Resource.ENERGY, 2, {log: true, from: {card: this}});
     }
     if (space.tile?.tileType === TileType.GREENERY) {
-      cardOwner.stock.add(Resource.PLANTS, 1, {log: true, from: {card: this}});
+      cardOwner.stock.add(Resource.PLANTS, 2, {log: true, from: {card: this}});
     }
   }
 }

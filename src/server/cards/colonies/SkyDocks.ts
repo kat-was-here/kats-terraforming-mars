@@ -18,7 +18,7 @@ export class SkyDocks extends Card implements IProjectCard {
         colonies: {addTradeFleet: 1},
       },
 
-      requirements: {tag: Tag.EARTH, count: 2},
+      requirements: {tag: Tag.EARTH, count: 3},
       cardDiscount: {amount: 1},
       metadata: {
         cardNumber: 'C36',
@@ -28,7 +28,7 @@ export class SkyDocks extends Card implements IProjectCard {
           }).br;
           b.tradeFleet();
         }),
-        description: 'Requires 2 Earth tags. Gain 1 Trade Fleet.',
+        description: 'Requires 3 Earth tags. Gain 1 Trade Fleet.',
       },
     });
   }

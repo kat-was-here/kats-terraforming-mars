@@ -25,11 +25,11 @@ export class SpacePort extends Card implements IProjectCard {
         renderData: CardRenderer.builder((b) => {
           b.production((pb) => {
             pb.minus().energy(1).br;
-            pb.plus().megacredits(4);
+            pb.plus().megacredits(3);
           }).nbsp.city().br;
           b.tradeFleet();
         }),
-        description: 'Requires 1 colony. Decrease your energy production 1 step and increase your M€ production 4 steps. Place a city tile. Gain 1 Trade Fleet.',
+        description: 'Requires 1 colony. Decrease your energy production 1 step and increase your M€ production 3 steps. Place a city tile. Gain 1 Trade Fleet.',
       },
     });
   }

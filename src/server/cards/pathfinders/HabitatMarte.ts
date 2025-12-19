@@ -17,8 +17,9 @@ export class HabitatMarte extends CorporationCard implements ICorporationCard {
         renderData: CardRenderer.builder((b) => {
           b.megacredits(40);
           b.corpBox('effect', (ce) => {
-            ce.effect('Mars tags also count as science tags.', (eb) => {
+            ce.effect('Mars tags also count as science tags and vice versa.', (eb) => {
               eb.tag(Tag.MARS).startEffect.tag(Tag.SCIENCE);
+              eb.tag(Tag.SCIENCE).startEffect.tag(Tag.MARS);
             });
           });
         }),

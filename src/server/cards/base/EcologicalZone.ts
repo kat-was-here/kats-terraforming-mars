@@ -18,7 +18,7 @@ import {ICard} from '../ICard';
 export class EcologicalZone extends Card implements IProjectCard {
   constructor(
     name = CardName.ECOLOGICAL_ZONE,
-    cost = 12,
+    cost = 14,
     adjacencyBonus: AdjacencyBonus | undefined = undefined,
     metadata: CardMetadata = {
       description: {

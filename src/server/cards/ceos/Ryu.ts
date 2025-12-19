@@ -19,10 +19,10 @@ export class Ryu extends CeoCard {
         renderData: CardRenderer.builder((b) => {
           b.opgArrow().text('ACTIVATE THE BELOW ABILITY');
           b.br;
-          b.text('SWAP X+2').production((pb) => pb.wild(1));
+          b.text('SWAP X+1').production((pb) => pb.wild(1));
           b.br.br;
         }),
-        description: 'Once per game, swap up to X+2 units of production between two resources, where X is the current generation number.',
+        description: 'Once per game, swap up to X+1 units of production between two resources, where X is the current generation number.',
       },
     });
   }
@@ -48,7 +48,7 @@ export class Ryu extends CeoCard {
         // M€ production can go down to -5
         let decreasable = player.production.get(resourceToDecrease);
         if (resourceToDecrease === Resource.MEGACREDITS) decreasable += 5;
-        const maxDecreasableAmt = Math.min(player.game.generation + 2, decreasable);
+        const maxDecreasableAmt = Math.min(player.game.generation + 1, decreasable);
 
         return new SelectAmount(
           `Select amount of ${resourceToDecrease} production to decrease`,
