@@ -10,7 +10,7 @@ export class MarsMaths extends CorporationCard implements ICorporationCard {
     super({
       name: CardName.MARS_MATHS,
       tags: [Tag.SCIENCE],
-      startingMegaCredits: 40,
+      startingMegaCredits: 38,
 
       firstAction: {
         text: 'Draw 2 cards',

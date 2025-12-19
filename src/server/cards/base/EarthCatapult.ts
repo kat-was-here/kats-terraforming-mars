@@ -16,12 +16,12 @@ export class EarthCatapult extends Card implements IProjectCard {
 
       cardDiscount: {amount: 2},
       
-      requirements: { tag: Tag.EARTH, count: 3 },
+      requirements: { tag: Tag.EARTH, count: 2 },
       
       metadata: {
         cardNumber: '070',
         renderData: CardRenderer.builder((b) => {
-          b.effect('Requires 3 Earth tags. When you play a card, you pay 2 M€ less for it.', (eb) => {
+          b.effect('Requires 2 Earth tags. When you play a card, you pay 2 M€ less for it.', (eb) => {
             eb.empty().startEffect.megacredits(-2);
           });
         }),

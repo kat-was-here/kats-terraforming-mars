@@ -11,6 +11,11 @@ export class CheungShingMARS extends CorporationCard implements ICorporationCard
       tags: [Tag.BUILDING],
       startingMegaCredits: 44,
 
+      firstAction: {
+       text: 'Draw a building card',
+       drawCard: {count: 1, tag: Tag.BUILDING},
+     },
+
       behavior: {
         production: {megacredits: 3},
       },

@@ -11,7 +11,7 @@ export class FueledGenerators extends Card implements IProjectCard {
       type: CardType.AUTOMATED,
       name: CardName.FUELED_GENERATORS,
       tags: [Tag.POWER, Tag.BUILDING],
-      cost: 10,
+      cost: 8,
 
       behavior: {
         production: {energy: 5, megacredits: -5},

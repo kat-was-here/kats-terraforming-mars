@@ -14,7 +14,7 @@ export class Pluto extends Colony {
       trade: {
         description: 'Draw n cards',
         type: ColonyBenefit.DRAW_CARDS,
-        quantity: [0, 1, 2, 2, 3, 3, 4],
+        quantity: [0, 0, 1, 1, 2, 2, 3],
       },
       colony: {
         description: 'Draw 1 card and then discard 1 card',

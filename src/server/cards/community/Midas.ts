@@ -8,7 +8,7 @@ export class Midas extends CorporationCard implements ICorporationCard {
   constructor() {
     super({
       name: CardName.MIDAS,
-      startingMegaCredits: 120,
+      startingMegaCredits: 143,
 
       behavior: {
         tr: -7,
@@ -16,10 +16,10 @@ export class Midas extends CorporationCard implements ICorporationCard {
 
       metadata: {
         cardNumber: 'R41',
-        description: 'You start with 120 M€. Lower your TR 7 steps.',
+        description: 'You start with 143 M€. Lower your TR 7 steps.',
         renderData: CardRenderer.builder((b) => {
           b.vSpace(Size.LARGE).br;
-          b.megacredits(120, {size: Size.LARGE}).nbsp.nbsp.nbsp;
+          b.megacredits(143, {size: Size.LARGE}).nbsp.nbsp.nbsp;
           b.minus().tr(7);
         }),
       },

@@ -17,7 +17,7 @@ export class Floyd extends CeoCard {
           b.text('PLAY').cards(1).colon().megacredits(-13).megacredits(1, {text: '-2x'}).asterix();
           b.br.br;
         }),
-        description: 'Once per game, play a card from hand for 13 + 2X M€ less, where X is the current generation number.',
+        description: 'Once per game, play a card from hand for 12 + 2X M€ less, where X is the current generation number.',
       },
     });
   }
@@ -39,7 +39,7 @@ export class Floyd extends CeoCard {
 
   public override getCardDiscount(player: IPlayer) {
     if (this.opgActionIsActive === true) {
-      return 13 + (2 * player.game.generation);
+      return 12 + (2 * player.game.generation);
     }
     return 0;
   }

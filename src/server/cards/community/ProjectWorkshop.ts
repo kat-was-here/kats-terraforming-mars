@@ -31,13 +31,13 @@ export class ProjectWorkshop extends CorporationCard implements ICorporationCard
       },
 
       firstAction: {
-        text: 'Draw a blue card',
-        drawCard: {count: 1, type: CardType.ACTIVE},
+        text: 'Draw two blue cards',
+        drawCard: {count: 2, type: CardType.ACTIVE},
       },
 
       metadata: {
         cardNumber: 'R45',
-        description: 'You start with 39 M€, 1 steel and 1 titanium. As your first action, draw a blue card.',
+        description: 'You start with 39 M€, 1 steel and 1 titanium. As your first action, draw two blue cards.',
         renderData: CardRenderer.builder((b) => {
           b.megacredits(39).steel(1).titanium(1).cards(1, {secondaryTag: AltSecondaryTag.BLUE});
           b.corpBox('action', (cb) => {

@@ -11,17 +11,17 @@ export class CorporateArchives extends PreludeCard {
       tags: [Tag.SCIENCE],
 
       behavior: {
-        drawCard: {count: 7, keep: 2},
-        stock: {megacredits: 12},
+        drawCard: {count: 6, keep: 2},
+        stock: {megacredits: 11},
       },
 
       metadata: {
         cardNumber: 'X39',
-        description: 'Gain 12 M€.',
+        description: 'Gain 11 M€.',
         renderData: CardRenderer.builder((b) => {
-          b.text('Look at the top 7 cards from the deck. Take 2 of them into hand and discard the other 5.', Size.SMALL, true);
+          b.text('Look at the top 6 cards from the deck. Take 2 of them into hand and discard the other 4.', Size.SMALL, true);
           b.br;
-          b.megacredits(12);
+          b.megacredits(11);
         }),
       },
     });

@@ -20,13 +20,13 @@ export class Steelaris extends CorporationCard implements ICorporationCard {
     super({
       name: CardName.STEELARIS,
       tags: [Tag.BUILDING, Tag.CITY],
-      startingMegaCredits: 42,
+      startingMegaCredits: 52,
 
       metadata: {
         cardNumber: 'PfC9',
-        description: 'You start with 42 M€.',
+        description: 'You start with 52 M€.',
         renderData: CardRenderer.builder((b) => {
-          b.megacredits(42).br;
+          b.megacredits(52).br;
           b.corpBox('effect', (ce) => {
             ce.effect('When any city or special tile is placed ON MARS, gain 1 steel and 1 plant.', (eb) => {
               eb.city({size: Size.SMALL, all}).slash().specialTile({size: Size.SMALL, all}).startEffect.steel(1).plants(1);

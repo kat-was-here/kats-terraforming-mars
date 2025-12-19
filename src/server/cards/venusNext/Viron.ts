@@ -6,6 +6,8 @@ import {SelectCard} from '../../inputs/SelectCard';
 import {CardName} from '../../../common/cards/CardName';
 import {CardRenderer} from '../render/CardRenderer';
 import {ICorporationCard} from '../corporation/ICorporationCard';
+import {CardType} from '../../../common/cards/CardType';             
+import {AltSecondaryTag} from '../../../common/cards/render/AltSecondaryTag';
 
 export class Viron extends CorporationCard implements ICorporationCard {
   constructor() {
@@ -14,12 +16,18 @@ export class Viron extends CorporationCard implements ICorporationCard {
       tags: [Tag.MICROBE],
       startingMegaCredits: 48,
 
+      firstAction: {
+             text: 'Draw a blue card',
+             drawCard: {count: 1, type: CardType.ACTIVE},
+           },
+      
+
       metadata: {
         cardNumber: 'R12',
-        description: 'You start with 48 M€.',
+        description: 'You start with 48 M€. As your first action, draw a blue card',
         renderData: CardRenderer.builder((b) => {
           b.br.br.br;
-          b.megacredits(48);
+          b.megacredits(48).cards(1, {secondaryTag: AltSecondaryTag.BLUE});
           b.corpBox('action', (ce) => {
             ce.action('Use a blue card action that has already been used this generation.', (eb) => {
               eb.empty().startAction.empty();
@@ -49,6 +57,7 @@ export class Viron extends CorporationCard implements ICorporationCard {
     }
     return result;
   }
+  
 
   public canAct(player: IPlayer): boolean {
     return this.getActionCards(player).length > 0 && !player.actionsThisGeneration.has(this.name);

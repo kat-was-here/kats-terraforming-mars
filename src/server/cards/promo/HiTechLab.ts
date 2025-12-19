@@ -14,7 +14,7 @@ export class HiTechLab extends Card implements IProjectCard {
       type: CardType.ACTIVE,
       name: CardName.HI_TECH_LAB,
       tags: [Tag.SCIENCE, Tag.BUILDING],
-      cost: 17,
+      cost: 19,
       victoryPoints: 1,
 
       metadata: {

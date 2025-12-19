@@ -21,7 +21,7 @@ export class DirectedImpactors extends Card implements IActionCard, IProjectCard
       type: CardType.ACTIVE,
       name: CardName.DIRECTED_IMPACTORS,
       tags: [Tag.SPACE],
-      cost: 8,
+      cost: 5,
       resourceType: CardResource.ASTEROID,
 
       metadata: {

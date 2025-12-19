@@ -14,7 +14,7 @@ export class SmallOpenPitMine extends Card implements IProjectCard {
     super({
       type: CardType.AUTOMATED,
       name: CardName.SMALL_OPEN_PIT_MINE,
-      cost: 16,
+      cost: 19,
       tags: [Tag.BUILDING],
 
       metadata: {

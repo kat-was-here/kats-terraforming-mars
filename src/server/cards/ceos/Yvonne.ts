@@ -12,9 +12,9 @@ export class Yvonne extends CeoCard {
       metadata: {
         cardNumber: 'L25',
         renderData: CardRenderer.builder((b) => {
-          b.opgArrow().text('GAIN ALL YOUR COLONY BONUSES TWICE', Size.SMALL);
+          b.opgArrow().text('GAIN ALL YOUR COLONY BONUSES THRICE', Size.SMALL);
         }),
-        description: 'Once per game, gain all your colony bonuses twice.',
+        description: 'Once per game, gain all your colony bonuses thrice.',
       },
     });
   }
@@ -31,6 +31,7 @@ export class Yvonne extends CeoCard {
     this.isDisabled = true;
     player.game.colonies.forEach((colony) => {
       colony.colonies.filter((owner) => owner === player.id).forEach((owner) => {
+        player.defer(() => colony.giveColonyBonus(player.game.getPlayerById(owner)));
         player.defer(() => colony.giveColonyBonus(player.game.getPlayerById(owner)));
         player.defer(() => colony.giveColonyBonus(player.game.getPlayerById(owner)));
       });

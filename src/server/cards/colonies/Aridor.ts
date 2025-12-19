@@ -14,15 +14,15 @@ export class Aridor extends CorporationCard implements ICorporationCard {
   constructor() {
     super({
       name: CardName.ARIDOR,
-      startingMegaCredits: 40,
+      startingMegaCredits: 24,
       initialActionText: 'Add a colony tile',
 
       metadata: {
         cardNumber: 'R20',
-        description: 'You start with 30 M€. As your first action, put an additional Colony Tile of your choice into play',
+        description: 'You start with 24 M€. As your first action, put an additional Colony Tile of your choice into play',
         renderData: CardRenderer.builder((b) => {
           b.br.br;
-          b.megacredits(40).nbsp.colonyTile();
+          b.megacredits(24).nbsp.colonyTile();
           b.corpBox('effect', (ce) => {
             ce.effect('When you get a new type of tag in play [event cards do not count], increase your M€ production 1 step.', (eb) => {
               eb.diverseTag().startEffect.production((pb) => pb.megacredits(1));

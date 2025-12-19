@@ -69,7 +69,7 @@ class ScientistsPolicy02 implements IPolicy {
 
 class ScientistsPolicy03 implements IPolicy {
   readonly id = 'sp03' as const;
-  readonly description = 'When you raise a global parameter, draw a card per step raised';
+  readonly description = 'When you raise a global parameter, draw and discard a card per step raised';
 }
 
 class ScientistsPolicy04 extends Policy {

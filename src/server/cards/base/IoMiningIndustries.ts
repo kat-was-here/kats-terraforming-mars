@@ -11,7 +11,7 @@ export class IoMiningIndustries extends Card implements IProjectCard {
       type: CardType.AUTOMATED,
       name: CardName.IO_MINING_INDUSTRIES,
       tags: [Tag.JOVIAN, Tag.SPACE],
-      cost: 41,
+      cost: 42,
       victoryPoints: {tag: Tag.JOVIAN},
 
       behavior: {
