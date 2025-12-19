@@ -86,7 +86,7 @@
               <input type="checkbox" id="solar-phase">
               <label for="solar-phase"><span v-i18n>Solar Phase</span></label>
               <ul>
-                <li><span v-i18n>i. Game end check</span></li>
+                <li><span v-i18n>i. Game end check</span>
                   <ul>
                     <li v-i18n>If temperature, oxygen, and oceans are maxed, skip the rest of solar phase to the end game phase.</li>
                     <li v-i18n>(If playing solo, the game ends after 14 generations.)</li>

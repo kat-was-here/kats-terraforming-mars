@@ -23,7 +23,7 @@ export class AICentral extends ActionCard implements IProjectCard {
 
       victoryPoints: 1,
 
-      requirements: {tag: Tag.SCIENCE, count: 3},
+      requirements: {tag: Tag.SCIENCE, count: 6},
       metadata: {
         description: {
           text: 'Requires 3 science tags to play. Decrease your energy production 1 step.',
