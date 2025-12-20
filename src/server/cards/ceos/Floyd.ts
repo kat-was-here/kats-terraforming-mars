@@ -14,7 +14,7 @@ export class Floyd extends CeoCard {
         renderData: CardRenderer.builder((b) => {
           b.opgArrow().text('ACTIVATE THE BELOW ABILITY');
           b.br.br;
-          b.text('PLAY').cards(1).colon().megacredits(-13).megacredits(1, {text: '-2x'}).asterix();
+          b.text('PLAY').cards(1).colon().megacredits(-12).megacredits(1, {text: '-2x'}).asterix();
           b.br.br;
         }),
         description: 'Once per game, play a card from hand for 12 + 2X M€ less, where X is the current generation number.',

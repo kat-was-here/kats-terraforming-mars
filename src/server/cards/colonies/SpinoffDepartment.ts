@@ -10,7 +10,7 @@ import {ICard} from '../ICard';
 export class SpinoffDepartment extends Card implements IProjectCard {
   constructor() {
     super({
-      cost: 19,
+      cost: 10,
       tags: [Tag.BUILDING],
       name: CardName.SPINOFF_DEPARTMENT,
       type: CardType.ACTIVE,
@@ -25,9 +25,9 @@ export class SpinoffDepartment extends Card implements IProjectCard {
           b.effect('WHEN PLAYING A CARD WITH A BASIC COST OF 20M€ OR MORE, draw a card.', (eb) => {
             eb.megacredits(20).asterix().startEffect.cards(1);
           }).br;
-          b.production((pb) => pb.megacredits(3));
+          b.production((pb) => pb.megacredits(1));
         }),
-        description: 'Increase your M€ production 3 steps.',
+        description: 'Increase your M€ production 1 step.',
       },
     });
   }

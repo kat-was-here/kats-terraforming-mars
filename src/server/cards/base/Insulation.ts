@@ -12,7 +12,7 @@ export class Insulation extends Card implements IProjectCard {
     super({
       type: CardType.AUTOMATED,
       name: CardName.INSULATION,
-      cost: 2,
+      cost: 1,
 
       metadata: {
         cardNumber: '152',

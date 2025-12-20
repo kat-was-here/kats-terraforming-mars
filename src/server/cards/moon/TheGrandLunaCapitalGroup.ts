@@ -23,7 +23,7 @@ export class TheGrandLunaCapitalGroup extends CorporationCard implements ICorpor
       victoryPoints: 'special',
 
       behavior: {
-        stock: {titanium: 1},
+        stock: {titanium: 5},
       },
 
       firstAction: {
@@ -33,7 +33,7 @@ export class TheGrandLunaCapitalGroup extends CorporationCard implements ICorpor
 
       metadata: {
         description: {
-          text: 'You start with 42 M€ and 1 titanium. As your first action, place a habitat tile on The Moon and raise the habitat rate 1 step.',
+          text: 'You start with 42 M€ and 5 titanium. As your first action, place a habitat tile on The Moon and raise the habitat rate 1 step.',
           align: 'left',
         },
         cardNumber: 'MC7',

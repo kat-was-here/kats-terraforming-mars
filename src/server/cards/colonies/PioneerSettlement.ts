@@ -18,7 +18,7 @@ export class PioneerSettlement extends Card implements IProjectCard {
       name: CardName.PIONEER_SETTLEMENT,
       type: CardType.AUTOMATED,
       requirements: {colonies: 1, max},
-      victoryPoints: 2,
+      victoryPoints: 3,
 
       metadata: {
         cardNumber: 'C29',

@@ -12,7 +12,7 @@ export class CallistoPenalMines extends Card implements IProjectCard {
       type: CardType.AUTOMATED,
       name: CardName.CALLISTO_PENAL_MINES,
       tags: [Tag.JOVIAN, Tag.SPACE],
-      cost: 26,
+      cost: 27,
       victoryPoints: 2,
 
       behavior: {
@@ -23,7 +23,7 @@ export class CallistoPenalMines extends Card implements IProjectCard {
         description: 'Increase your M€ production 4 steps.',
         cardNumber: '082',
         renderData: CardRenderer.builder((b) => b.production((pb) => {
-          pb.megacredits(3);
+          pb.megacredits(4);
         })),
       },
     });

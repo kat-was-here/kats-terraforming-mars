@@ -11,7 +11,7 @@ export class TropicalResort extends Card implements IProjectCard {
       type: CardType.AUTOMATED,
       name: CardName.TROPICAL_RESORT,
       tags: [Tag.BUILDING],
-      cost: 13,
+      cost: 11,
 
       behavior: {
         production: {megacredits: 3, heat: -2},

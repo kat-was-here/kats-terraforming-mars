@@ -11,8 +11,8 @@ export class UndermoonDrugLordsNetwork extends Card implements IProjectCard {
       name: CardName.UNDERMOON_DRUG_LORDS_NETWORK,
       type: CardType.AUTOMATED,
       tags: [Tag.MOON],
-      cost: 2,
-      victoryPoints: -1,
+      cost: 14,
+      victoryPoints: 1,
 
       behavior: {
         production: {megacredits: {moon: {habitatRate: {}}, per: 2}},

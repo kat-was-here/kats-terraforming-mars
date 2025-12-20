@@ -17,16 +17,16 @@ export class LunaFirstIncorporated extends CorporationCard implements ICorporati
 
       behavior: {
         // stock: {steel: 2, titanium: 2},
-        stock: {steel: 1, titanium: 1},
+        stock: {steel: 2, titanium: 2},
       },
 
       metadata: {
         // description: 'You start with 40 M€, 2 steel, and 2 titanium.',
-        description: 'You start with 40 M€, 1 steel, and 1 titanium.',
+        description: 'You start with 40 M€, 2 steel, and 2 titanium.',
         cardNumber: 'MC6',
         renderData: CardRenderer.builder((b) => {
           // b.megacredits(40).steel(2).titanium(2).br;
-          b.megacredits(40).steel(1).titanium(1).br;
+          b.megacredits(40).steel(2).titanium(2).br;
           b.effect('When you raise any Moon Rate, increase your M€ production 1 step per step.', (eb) => {
             eb.moonHabitatRate({size: Size.SMALL}).slash()
               .moonMiningRate({size: Size.SMALL}).slash()

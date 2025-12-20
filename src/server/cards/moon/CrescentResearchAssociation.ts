@@ -5,14 +5,15 @@ import {IProjectCard} from '../IProjectCard';
 import {CardRenderer} from '../render/CardRenderer';
 import {Tag} from '../../../common/cards/Tag';
 import {ICorporationCard} from '../corporation/ICorporationCard';
+import {IActionCard} from '../ICard';
+import {SelectPaymentDeferred} from '../../deferredActions/SelectPaymentDeferred';
 
-export class CrescentResearchAssociation extends CorporationCard implements ICorporationCard {
+export class CrescentResearchAssociation extends CorporationCard implements ICorporationCard, IActionCard {
   constructor() {
     super({
       name: CardName.CRESCENT_RESEARCH_ASSOCIATION,
       tags: [Tag.SCIENCE, Tag.MOON],
       startingMegaCredits: 50,
-
       victoryPoints: {tag: Tag.MOON, per: 3},
 
       metadata: {
@@ -22,6 +23,10 @@ export class CrescentResearchAssociation extends CorporationCard implements ICor
           b.megacredits(50).br;
           b.effect('When you play a Moon tag, you pay 1 M€ less for each Moon tag you have.', (eb) => {
             eb.tag(Tag.MOON).startEffect.megacredits(1).slash().tag(Tag.MOON);
+          });
+          b.br;
+          b.action('Pay 9 M€ to draw a Moon card (only on even generations).', (eb) => {
+            eb.megacredits(9).startAction.cards(1, {tag: Tag.MOON});
           });
         }),
       },
@@ -33,5 +38,29 @@ export class CrescentResearchAssociation extends CorporationCard implements ICor
       return 0;
     }
     return player.tags.count(Tag.MOON);
+  }
+
+  public canAct(player: IPlayer): boolean {
+    // Check if player can afford 9 M€
+    if (!player.canAfford(9)) {
+      return false;
+    }
+    
+    // Check if current generation is even (2, 4, 6, 8, 10, 12, 14)
+    const generation = player.game.generation;
+    const evenGenerations = [2, 4, 6, 8, 10, 12, 14];
+    return evenGenerations.includes(generation);
+  }
+
+  public action(player: IPlayer) {
+    const game = player.game;
+    game.log('${0} used ${1} action', (b) => b.player(player).card(this));
+    
+    game.defer(new SelectPaymentDeferred(player, 9, {
+      title: 'Select how to pay 9 M€',
+    }))
+      .andThen(() => player.drawCard(1, {tag: Tag.MOON}));
+    
+    return undefined;
   }
 }

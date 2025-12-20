@@ -15,7 +15,7 @@ export class FreyjaBiodomes extends Card implements IProjectCard {
       name: CardName.FREYJA_BIODOMES,
       type: CardType.AUTOMATED,
       tags: [Tag.PLANT, Tag.VENUS],
-      cost: 14,
+      cost: 11,
 
       requirements: {venus: 10},
       victoryPoints: 2,

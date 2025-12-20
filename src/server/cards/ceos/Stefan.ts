@@ -4,6 +4,7 @@ import {PlayerInput} from '../../PlayerInput';
 import {CardRenderer} from '../render/CardRenderer';
 import {CeoCard} from './CeoCard';
 import {SelectCard} from '../../inputs/SelectCard';
+import {SelectPaymentDeferred} from '../../deferredActions/SelectPaymentDeferred';
 
 export class Stefan extends CeoCard {
   constructor() {
@@ -12,9 +13,10 @@ export class Stefan extends CeoCard {
       metadata: {
         cardNumber: 'L19',
         renderData: CardRenderer.builder((b) => {
-          b.opgArrow().text('SELL').cards(1).colon().megacredits(3);
+          b.opgArrow().megacredits(5).colon().cards(5);
+          b.nbsp.text('THEN SELL').cards(1).asterix().colon().megacredits(3);
         }),
-        description: 'Once per game, sell any number of cards from your hand for 3 M€ each.',
+        description: 'Once per game, pay 5 M€ to draw 5 cards, then sell any number of cards from your hand for 3 M€ each.',
       },
     });
   }
@@ -23,26 +25,44 @@ export class Stefan extends CeoCard {
     if (!super.canAct(player)) {
       return false;
     }
-    return player.cardsInHand.length > 0;
+    return player.canAfford(5);
   }
 
-
   public action(player: IPlayer): PlayerInput | undefined {
+    const game = player.game;
     this.isDisabled = true;
-    return new SelectCard(
-      'Sell patents',
-      'Sell',
-      player.cardsInHand,
-      {min: 0, max: player.cardsInHand.length})
-      .andThen((cards) => {
-        player.megaCredits += cards.length * 3;
 
-        cards.forEach((card) => {
-          player.discardCardFromHand(card);
+    // Pay 5 M€ and draw 5 cards
+    game.defer(new SelectPaymentDeferred(player, 5, {
+      title: 'Select how to pay 5 M€',
+    }))
+      .andThen(() => {
+        player.drawCard(5);
+        game.log('${0} paid 5 M€ and drew 5 cards', (b) => b.player(player));
+      })
+      .andThen(() => {
+        // Then sell cards
+        return new SelectCard(
+          'Sell patents for 3 M€ each',
+          'Sell',
+          player.cardsInHand,
+          {min: 0, max: player.cardsInHand.length}
+        ).andThen((cards) => {
+          if (cards.length > 0) {
+            player.megaCredits += cards.length * 3;
+            cards.forEach((card) => {
+              player.discardCardFromHand(card);
+            });
+            game.log('${0} sold ${1} patents for ${2} M€', (b) => 
+              b.player(player).number(cards.length).number(cards.length * 3)
+            );
+          } else {
+            game.log('${0} did not sell any patents', (b) => b.player(player));
+          }
+          return undefined;
         });
-
-        player.game.log('${0} sold ${1} patents', (b) => b.player(player).number(cards.length));
-        return undefined;
       });
+
+    return undefined;
   }
 }

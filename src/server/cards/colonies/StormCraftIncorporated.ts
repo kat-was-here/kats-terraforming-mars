@@ -15,8 +15,8 @@ export class StormCraftIncorporated extends ActiveCorporationCard {
   constructor() {
     super({
       name: CardName.STORMCRAFT_INCORPORATED,
-      tags: [Tag.JOVIAN],
-      startingMegaCredits: 48,
+      tags: [Tag.JOVIAN, Tag.VENUS],
+      startingMegaCredits: 53,
       resourceType: CardResource.FLOATER,
 
       action: {
@@ -28,7 +28,7 @@ export class StormCraftIncorporated extends ActiveCorporationCard {
         description: 'You start with 48 M€.',
         renderData: CardRenderer.builder((b) => {
           b.br;
-          b.megacredits(48);
+          b.megacredits(53);
           b.corpBox('action', (ce) => {
             ce.vSpace(Size.LARGE);
             ce.action('Add a floater to ANY card.', (eb) => {

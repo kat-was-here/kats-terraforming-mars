@@ -8,7 +8,7 @@ export class Polyphemos extends CorporationCard implements ICorporationCard {
   constructor() {
     super({
       name: CardName.POLYPHEMOS,
-      startingMegaCredits: 50,
+      startingMegaCredits: 55,
       cardCost: 5,
 
       behavior: {
@@ -18,10 +18,10 @@ export class Polyphemos extends CorporationCard implements ICorporationCard {
 
       metadata: {
         cardNumber: 'R11',
-        description: 'You start with 50 M€. Increase your M€ production 5 steps. Gain 5 titanium.',
+        description: 'You start with 55 M€. Increase your M€ production 5 steps. Gain 5 titanium.',
         renderData: CardRenderer.builder((b) => {
           b.br;
-          b.megacredits(50).nbsp.production((pb) => pb.megacredits(5)).nbsp.titanium(5, {digit});
+          b.megacredits(55).nbsp.production((pb) => pb.megacredits(5)).nbsp.titanium(5, {digit});
           b.corpBox('effect', (ce) => {
             ce.effect('When you buy a card to hand, pay 5M€ instead of 3, including the starting hand.', (eb) => {
               eb.cards(1).asterix().startEffect.megacredits(5);

@@ -11,7 +11,7 @@ export class SocialEvents extends Card implements IProjectCard {
     super({
       type: CardType.EVENT,
       name: CardName.SOCIAL_EVENTS,
-      cost: 18,
+      cost: 15,
       tags: [Tag.EARTH, Tag.MARS],
 
       metadata: {

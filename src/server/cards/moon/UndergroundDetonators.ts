@@ -9,7 +9,7 @@ export class UndergroundDetonators extends Card implements IProjectCard {
     super({
       name: CardName.UNDERGROUND_DETONATORS,
       type: CardType.EVENT,
-      cost: 9,
+      cost: 11,
 
       behavior: {
         stock: {steel: 1, titanium: 1},

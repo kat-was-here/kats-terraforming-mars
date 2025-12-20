@@ -14,12 +14,12 @@ export class NanotechIndustries extends CorporationCard implements ICorporationC
     super({
       name: CardName.NANOTECH_INDUSTRIES,
       tags: [Tag.SCIENCE, Tag.MOON],
-      startingMegaCredits: 42,
+      startingMegaCredits: 46,
       resourceType: CardResource.SCIENCE,
 
       firstAction: {
-        text: 'Draw 3 cards and keep 2.',
-        drawCard: {count: 3, keep: 2},
+        text: 'Draw 5 cards and keep 2.',
+        drawCard: {count: 5, keep: 2},
       },
 
       victoryPoints: {resourcesHere: {}, per: 2},
@@ -27,12 +27,12 @@ export class NanotechIndustries extends CorporationCard implements ICorporationC
       metadata: {
         cardNumber: 'MC1',
         renderData: CardRenderer.builder((b) => {
-          b.megacredits(42).cards(3).minus().cards(1).br;
+          b.megacredits(46).cards(3).minus().cards(1).br;
           b.action('Add 1 science resource to ANY card [except those giving 2 or more VP per 1 science resource.]', (eb) => {
             eb.empty().startAction.resource(CardResource.SCIENCE).asterix();
           });
         }),
-        description: 'You start with 42 M€. As your first action, draw 3 cards. Take 2 of them into hand, and discard the rest. ' +
+        description: 'You start with 46 M€. As your first action, draw 5 cards. Take 2 of them into hand, and discard the rest. ' +
           '1 VP for every 2 science resources here.',
       },
     });

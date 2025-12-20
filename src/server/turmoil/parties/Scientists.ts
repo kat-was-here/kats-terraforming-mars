@@ -5,9 +5,11 @@ import {Tag} from '../../../common/cards/Tag';
 import {Resource} from '../../../common/Resource';
 import {Bonus} from '../Bonus';
 import {SelectPaymentDeferred} from '../../deferredActions/SelectPaymentDeferred';
+import {DiscardCards} from '../../deferredActions/DiscardCards';
 import {IPlayer} from '../../IPlayer';
 import {Policy, IPolicy} from '../Policy';
 import {TITLES} from '../../inputs/titles';
+import {GlobalParameter} from '../../../common/GlobalParameter';
 
 export class Scientists extends Party implements IParty {
   readonly name = PartyName.SCIENTISTS as const;
@@ -70,6 +72,17 @@ class ScientistsPolicy02 implements IPolicy {
 class ScientistsPolicy03 implements IPolicy {
   readonly id = 'sp03' as const;
   readonly description = 'When you raise a global parameter, draw and discard a card per step raised';
+
+  onGlobalParameterIncrease(player: IPlayer, _parameter: GlobalParameter, steps: number) {
+    if (steps > 0) {
+      for (let i = 0; i < steps; i++) {
+        // Draw a card first
+        player.drawCard(1);
+        // Then discard a card
+        player.game.defer(new DiscardCards(player, 1));
+      }
+    }
+  }
 }
 
 class ScientistsPolicy04 extends Policy {
