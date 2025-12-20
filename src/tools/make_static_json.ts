@@ -1,8 +1,9 @@
-// Generates the files settings.json and translations.json, stored in src/genfilesimport * as fs from 'fs';
-require('dotenv').config();
+// Generates the files settings.json and translations.json, stored in src/genfiles
 import * as fs from 'fs';
 import * as child_process from 'child_process';
 import * as path from 'path';
+
+require('dotenv').config();
 
 type Translation = {[lang: string]: string}
 function getAllTranslations(): {[key: string]: Translation} {
@@ -64,8 +65,8 @@ function getBuildMetadata() /* {head: string, date: string} */ {
     const [head, ...rest] = output.split(' ');
     return {head, date: rest.join(' ')};
   } catch (error) {
-    console.error('unable to generate app version', error);
-    return {head: 'n/a', date: 'n/a'};
+    console.warn('Git not available, using fallback version');
+    return {head: 'unknown', date: new Date().toUTCString()};
   }
 }
 
