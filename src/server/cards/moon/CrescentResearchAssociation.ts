@@ -25,8 +25,8 @@ export class CrescentResearchAssociation extends CorporationCard implements ICor
             eb.tag(Tag.MOON).startEffect.megacredits(1).slash().tag(Tag.MOON);
           });
           b.br;
-          b.action('Pay 9 M€ to draw a Moon card (only on even generations).', (eb) => {
-            eb.megacredits(9).startAction.cards(1, {tag: Tag.MOON});
+          b.action('Pay 6 M€ to draw a Moon card (only on even generations).', (eb) => {
+            eb.megacredits(6).startAction.cards(1, {tag: Tag.MOON});
           });
         }),
       },
@@ -57,7 +57,7 @@ export class CrescentResearchAssociation extends CorporationCard implements ICor
     game.log('${0} used ${1} action', (b) => b.player(player).card(this));
     
     game.defer(new SelectPaymentDeferred(player, 9, {
-      title: 'Select how to pay 9 M€',
+      title: 'Select how to pay 6 M€',
     }))
       .andThen(() => player.drawCard(1, {tag: Tag.MOON}));
     

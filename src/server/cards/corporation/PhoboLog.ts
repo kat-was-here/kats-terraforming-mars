@@ -32,7 +32,7 @@ export class PhoboLog extends CorporationCard implements ICorporationCard {
             });
           });
           b.corpBox('action', (ce) => {
-            ce.action('Pay 8 M€ (titanium may be used) to draw a Space card.', (eb) => {
+            ce.action('Pay 4 M€ (titanium may be used) to draw a Space card.', (eb) => {
               eb.megacredits(8).startAction.cards(1, {tag: Tag.SPACE});
             });
           });
@@ -42,7 +42,7 @@ export class PhoboLog extends CorporationCard implements ICorporationCard {
   }
 
   public canAct(player: IPlayer): boolean {
-    return player.canAfford({cost: 8, titanium: true});
+    return player.canAfford({cost: 4, titanium: true});
   }
 
   public action(player: IPlayer) {
@@ -50,7 +50,7 @@ export class PhoboLog extends CorporationCard implements ICorporationCard {
     game.log('${0} used ${1} action', (b) => b.player(player).card(this));
     
     game.defer(new SelectPaymentDeferred(player, 8, {
-      title: 'Select how to pay 8 M€',
+      title: 'Select how to pay 4 M€',
       canUseTitanium: true,
     }))
       .andThen(() => player.drawCard(1, {tag: Tag.SPACE}));
