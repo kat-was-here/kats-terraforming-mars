@@ -13,9 +13,9 @@ export class Ender extends CeoCard {
       metadata: {
         cardNumber: 'L05',
         renderData: CardRenderer.builder((b) => {
-          b.opgArrow().minus().text('2X').cards(1).plus().text('2X').cards(1);
+          b.opgArrow().minus().text('3X').cards(1).plus().text('2X').cards(1);
         }),
-        description: 'Once per game, discard any number of cards up to twice the current generation number to draw that many cards.',
+        description: 'Once per game, discard any number of cards up to thrice the current generation number to draw that many cards.',
       },
     });
   }
@@ -29,7 +29,7 @@ export class Ender extends CeoCard {
 
   public action(player: IPlayer): undefined {
     this.isDisabled = true;
-    const max = Math.min(player.cardsInHand.length, player.game.generation * 2);
+    const max = Math.min(player.cardsInHand.length, player.game.generation * 3);
     player.game.defer(new DiscardCards(player, 0, max), Priority.DISCARD_AND_DRAW)
       .andThen((cards) => player.game.defer(DrawCards.keepAll(player, cards.length)));
     return undefined;

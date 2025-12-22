@@ -13,7 +13,7 @@ export class CopernicusTower extends ActionCard {
       name: CardName.COPERNICUS_TOWER,
       type: CardType.ACTIVE,
       tags: [Tag.SCIENCE, Tag.MOON],
-      cost: 36,
+      cost: 32,
 
       resourceType: CardResource.SCIENCE,
       requirements: {production: Resource.TITANIUM, count: 2},

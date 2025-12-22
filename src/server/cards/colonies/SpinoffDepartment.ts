@@ -10,13 +10,13 @@ import {ICard} from '../ICard';
 export class SpinoffDepartment extends Card implements IProjectCard {
   constructor() {
     super({
-      cost: 10,
-      tags: [Tag.BUILDING],
+      cost: 15,
+      tags: [Tag.BUILDING, Tag.SCIENCE],
       name: CardName.SPINOFF_DEPARTMENT,
       type: CardType.ACTIVE,
 
       behavior: {
-        production: {megacredits: 3},
+        production: {megacredits: 1},
       },
 
       metadata: {

@@ -18,7 +18,7 @@ import {message} from '../../logs/MessageBuilder';
 export class TitanFloatingLaunchPad extends Card implements IProjectCard {
   constructor() {
     super({
-      cost: 18,
+      cost: 17,
       tags: [Tag.JOVIAN],
       name: CardName.TITAN_FLOATING_LAUNCHPAD,
       type: CardType.ACTIVE,

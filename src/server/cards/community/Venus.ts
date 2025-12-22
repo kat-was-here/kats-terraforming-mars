@@ -14,7 +14,7 @@ export class Venus extends Colony {
       trade: {
         description: 'Add n resources to ANY Venus card',
         type: ColonyBenefit.ADD_RESOURCES_TO_VENUS_CARD,
-        quantity: [0, 0, 0, 1, 2, 3, 4],
+        quantity: [0, 0, 0, 1, 2, 2, 3],
       },
       colony: {
         description: 'Add 1 resource to ANY Venus card',

@@ -12,9 +12,9 @@ export class Hygiea extends Colony {
         type: ColonyBenefit.OPPONENT_DISCARD,
       },
       trade: {
-        description: 'Steal 3 units of the listed type',
+        description: 'Steal 2 units of the listed type',
         type: ColonyBenefit.STEAL_RESOURCES,
-        quantity: [3, 3, 3, 3, 3, 3, 3],
+        quantity: [2, 2, 2, 2, 2, 2, 2],
         resource: [
           Resource.MEGACREDITS,
           Resource.MEGACREDITS,

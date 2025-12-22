@@ -14,7 +14,7 @@ export class Thorgate extends CorporationCard implements ICorporationCard {
       startingMegaCredits: 48,
 
       behavior: {
-        production: {energy: 1},
+        production: {energy: 2},
       },
 
       cardDiscount: {tag: Tag.POWER, amount: 3},

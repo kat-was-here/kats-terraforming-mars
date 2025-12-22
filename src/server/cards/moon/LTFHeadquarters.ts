@@ -11,7 +11,7 @@ export class LTFHeadquarters extends Card implements IProjectCard {
       name: CardName.LTF_HEADQUARTERS,
       type: CardType.AUTOMATED,
       tags: [Tag.SPACE],
-      cost: 31,
+      cost: 29,
 
       behavior: {
         moon: {habitatRate: 1},

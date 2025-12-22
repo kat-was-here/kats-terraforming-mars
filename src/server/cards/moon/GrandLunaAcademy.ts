@@ -11,8 +11,8 @@ export class GrandLunaAcademy extends Card implements IProjectCard {
     super({
       name: CardName.GRAND_LUNA_ACADEMY,
       type: CardType.AUTOMATED,
-      tags: [Tag.MOON],
-      cost: 13,
+      tags: [Tag.MOON, Tag.BUILDING],
+      cost: 8,
 
       behavior: {
         drawCard: {count: {tag: Tag.MOON, per: 2}},

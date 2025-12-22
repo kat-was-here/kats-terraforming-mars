@@ -19,7 +19,7 @@ export class Will extends CeoCard {
           b.resource(CardResource.FLOATER).resource(CardResource.FLOATER).wild(1).wild(1);
           b.br;
         }),
-        description: 'Once per game, add the following resources to your cards: 2 animals, 2 microbes, 2 floaters, 2 wild.',
+        description: 'Once per game, add 2 of each non-unique resource to your cards +2 of any',
       },
     });
   }
@@ -28,6 +28,9 @@ export class Will extends CeoCard {
     this.isDisabled = true;
     player.game.defer(new AddResourcesToCard(player, CardResource.ANIMAL, {count: 2}));
     player.game.defer(new AddResourcesToCard(player, CardResource.MICROBE, {count: 2}));
+    player.game.defer(new AddResourcesToCard(player, CardResource.FLOATER, {count: 2}));
+    player.game.defer(new AddResourcesToCard(player, CardResource.ASTEROID, {count: 2}));
+    player.game.defer(new AddResourcesToCard(player, CardResource.SCIENCE, {count: 2}));
     player.game.defer(new AddResourcesToCard(player, CardResource.FLOATER, {count: 2}));
     player.game.defer(new AddResourcesToCard(player, undefined, {count: 2}));
 

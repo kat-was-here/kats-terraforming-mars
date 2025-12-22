@@ -5,6 +5,7 @@ import {CardRenderer} from '../render/CardRenderer';
 import {CeoCard} from './CeoCard';
 import {SelectCard} from '../../inputs/SelectCard';
 import {SelectPaymentDeferred} from '../../deferredActions/SelectPaymentDeferred';
+import {IProjectCard} from '../IProjectCard';
 
 export class Stefan extends CeoCard {
   constructor() {
@@ -30,8 +31,7 @@ export class Stefan extends CeoCard {
 
   public action(player: IPlayer): PlayerInput | undefined {
     const game = player.game;
-    this.isDisabled = true;
-
+    
     // Pay 5 M€ and draw 5 cards
     game.defer(new SelectPaymentDeferred(player, 5, {
       title: 'Select how to pay 5 M€',
@@ -39,10 +39,9 @@ export class Stefan extends CeoCard {
       .andThen(() => {
         player.drawCard(5);
         game.log('${0} paid 5 M€ and drew 5 cards', (b) => b.player(player));
-      })
-      .andThen(() => {
-        // Then sell cards
-        return new SelectCard(
+        
+        // Then prompt to sell cards
+        return new SelectCard<IProjectCard>(
           'Sell patents for 3 M€ each',
           'Sell',
           player.cardsInHand,
@@ -59,10 +58,14 @@ export class Stefan extends CeoCard {
           } else {
             game.log('${0} did not sell any patents', (b) => b.player(player));
           }
+          
+          // Disable the CEO AFTER everything is complete
+          this.isDisabled = true;
+          
           return undefined;
         });
       });
-
+    
     return undefined;
   }
 }

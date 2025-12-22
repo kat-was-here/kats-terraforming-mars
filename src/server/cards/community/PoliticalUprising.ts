@@ -22,7 +22,7 @@ export class PoliticalUprising extends PreludeCard implements IProjectCard {
           b.delegates(4).br.br;
           b.cards(1, {secondaryTag: AltSecondaryTag.TURMOIL});
         }),
-        description: 'Place 4 delegates in any parties. Draw a Turmoil card.',
+        description: 'Place 4 delegates in any parties. Draw 1 Turmoil card.',
       },
     });
   }

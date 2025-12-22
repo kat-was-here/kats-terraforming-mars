@@ -13,14 +13,14 @@ export class CoLeadership extends PreludeCard {
       metadata: {
         cardNumber: 'xxx',
         renderData: CardRenderer.builder((b) => {
-          b.text('Draw 3 CEO cards and take one to your hand, it will be played on your first turn. Discard the other 2.', Size.SMALL, true);
+          b.text('Draw 5 CEO cards and take one to your hand, it will be played on your first turn. Discard the other 2.', Size.SMALL, true);
         }),
       },
     });
   }
 
   public override bespokeCanPlay(player: IPlayer) {
-    if (!player.game.ceoDeck.canDraw(3)) {
+    if (!player.game.ceoDeck.canDraw(5)) {
       this.warnings.add('deckTooSmall');
     }
     return true;
@@ -28,7 +28,7 @@ export class CoLeadership extends PreludeCard {
 
   public override bespokePlay(player: IPlayer) {
     const game = player.game;
-    game.defer(new DrawCeoCardFromDeck(player, 3)).andThen((card) => {
+    game.defer(new DrawCeoCardFromDeck(player, 5)).andThen((card) => {
       if (card !== undefined) {
         if (game.phase === Phase.ACTION) {
           if (player.canPlay(card)) {

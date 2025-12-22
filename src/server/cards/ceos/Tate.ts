@@ -18,10 +18,10 @@ export class Tate extends CeoCard {
       metadata: {
         cardNumber: 'L20',
         renderData: CardRenderer.builder((b) => {
-          b.opgArrow().text('5', Size.LARGE).cards(1, {secondaryTag: Tag.WILD}).asterix();
+          b.opgArrow().text('10', Size.LARGE).cards(1, {secondaryTag: Tag.WILD}).asterix();
           b.br.br;
         }),
-        description: 'Once per game, name a tag. Reveal cards from the deck until you find 5 cards with that tag. BUY up to 2 cards and discard the rest.',
+        description: 'Once per game, name a tag. Reveal cards from the deck until you find 10 cards with that tag. BUY up to 2 cards and discard the rest.',
       },
     });
   }
