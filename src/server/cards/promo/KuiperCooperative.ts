@@ -12,8 +12,8 @@ export class KuiperCooperative extends CorporationCard implements ICorporationCa
   constructor() {
     super({
       name: CardName.KUIPER_COOPERATIVE,
-      tags: [Tag.SPACE, Tag.SPACE, Tag.SPACE],
-      startingMegaCredits: 33,
+      tags: [Tag.SPACE, Tag.SPACE, Tag.SPACE, Tag.SPACE],
+      startingMegaCredits: 39,
       resourceType: CardResource.ASTEROID,
 
       behavior: {
@@ -22,9 +22,9 @@ export class KuiperCooperative extends CorporationCard implements ICorporationCa
 
       metadata: {
         cardNumber: 'XC01', // Rename
-        description: 'You start with 33 M€. Increase titanium production 1 step.',
+        description: 'You start with 39 M€. Increase titanium production 1 step.',
         renderData: CardRenderer.builder((b) => {
-          b.megacredits(33).production((pb) => pb.titanium(1)).br;
+          b.megacredits(39).production((pb) => pb.titanium(1)).br;
           b.action('Add 1 asteroid here for every space tag you have.', (ab) => {
             ab.empty().startAction.resource(CardResource.ASTEROID).slash().tag(Tag.SPACE);
           }).br;
