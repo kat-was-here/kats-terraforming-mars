@@ -14,7 +14,7 @@ export class OptimalAerobraking extends Card implements IProjectCard {
       type: CardType.ACTIVE,
       name: CardName.OPTIMAL_AEROBRAKING,
       tags: [Tag.SPACE],
-      cost: 7,
+      cost: 11,
 
       metadata: {
         cardNumber: '031',

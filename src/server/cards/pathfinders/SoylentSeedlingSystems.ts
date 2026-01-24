@@ -18,6 +18,7 @@ export class SoylentSeedlingSystems extends CorporationCard implements ICorporat
 
       behavior: {
         addResources: 2,
+        production: {plants: 1},
       },
 
       metadata: {

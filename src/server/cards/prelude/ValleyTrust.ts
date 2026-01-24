@@ -22,8 +22,8 @@ export class ValleyTrust extends CorporationCard implements ICorporationCard {
           b.br.br;
           b.megacredits(37).nbsp.prelude().asterix();
           b.corpBox('effect', (ce) => {
-            ce.effect('When you play a science tag, you pay 2M€ less for it.', (eb) => {
-              eb.tag(Tag.SCIENCE).startEffect.megacredits(-2);
+            ce.effect('When you play a science tag, you pay 3M€ less for it.', (eb) => {
+              eb.tag(Tag.SCIENCE).startEffect.megacredits(-3);
             });
           });
         }),

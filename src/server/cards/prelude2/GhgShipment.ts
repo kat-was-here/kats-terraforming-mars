@@ -24,9 +24,9 @@ export class GhgShipment extends Card {
       metadata: {
         cardNumber: 'P75',
         description: 'Requires that Kelvinists are in power or that you have 2 delegates there. ' +
-         'Increase your heat production 1 step. Gain 1 heat for each floater you have.',
+         'Increase your heat production 1 step. Gain 2 heat for each floater you have.',
         renderData: CardRenderer.builder((b) => {
-          b.production((pb) => pb.heat(1)).br;
+          b.production((pb) => pb.heat(2)).br;
           b.heat(1).slash().resource(CardResource.FLOATER);
         }),
       },

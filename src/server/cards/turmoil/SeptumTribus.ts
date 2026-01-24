@@ -20,7 +20,7 @@ export class SeptumTribus extends CorporationCard implements ICorporationCard, I
         description: 'You start with 42 M€. When you perform an action, the wild tag counts as any tag of your choice.',
         renderData: CardRenderer.builder((b) => {
           b.br;
-          b.megacredits(36);
+          b.megacredits(42);
           b.corpBox('action', (ce) => {
             ce.action('Gain 2 M€ for each party where you have at least 1 delegate.', (eb) => {
               eb.empty().startAction.megacredits(2).slash().delegates(1).asterix();

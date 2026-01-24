@@ -31,7 +31,7 @@ export class CommercialDistrict extends Card implements IProjectCard {
       type: CardType.AUTOMATED,
       name,
       tags: [Tag.BUILDING],
-      cost: 16,
+      cost: 18,
       adjacencyBonus,
 
       behavior: {

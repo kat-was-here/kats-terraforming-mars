@@ -18,7 +18,7 @@ export class MartianZoo extends Card implements IProjectCard {
       name: CardName.MARTIAN_ZOO,
       type: CardType.ACTIVE,
       resourceType: CardResource.ANIMAL,
-      requirements: {cities: 2, all},
+      requirements: {cities: 1, all},
       victoryPoints: 1,
 
       metadata: {
@@ -32,7 +32,7 @@ export class MartianZoo extends Card implements IProjectCard {
           });
         }),
         description: {
-          text: 'Requires 2 city tiles in play.',
+          text: 'Requires 1 city tile in play.',
           align: 'left',
         },
       },

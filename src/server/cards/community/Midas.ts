@@ -7,12 +7,14 @@ import {IActionCard} from '../ICard';
 import {IPlayer} from '../../IPlayer';
 import {SelectCard} from '../../inputs/SelectCard';
 import {IProjectCard} from '../IProjectCard';
+import { Tag } from '@/common/cards/Tag';
 
 export class Midas extends CorporationCard implements ICorporationCard, IActionCard {
   constructor() {
     super({
       name: CardName.MIDAS,
-      startingMegaCredits: 143,
+      tags: [Tag.JOVIAN],
+      startingMegaCredits: 132,
       
       behavior: {
         tr: -7,
@@ -20,14 +22,14 @@ export class Midas extends CorporationCard implements ICorporationCard, IActionC
 
       metadata: {
         cardNumber: 'R41',
-        description: 'You start with 143 M€. Lower your TR 7 steps.',
+        description: 'You start with 132 M€. Lower your TR 7 steps.',
         renderData: CardRenderer.builder((b) => {
           b.vSpace(Size.LARGE).br;
-          b.megacredits(143, {size: Size.LARGE}).nbsp.nbsp.nbsp;
+          b.megacredits(132, {size: Size.LARGE}).nbsp.nbsp.nbsp;
           b.minus().tr(7);
           b.br;
-          b.action('Discard a card from hand to gain 5 M€.', (ab) => {
-            ab.cards(1).startAction.megacredits(5);
+          b.action('Discard a card from hand to gain 3 M€.', (ab) => {
+            ab.cards(1).startAction.megacredits(3);
           });
         }),
       },

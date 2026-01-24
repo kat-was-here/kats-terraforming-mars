@@ -19,14 +19,14 @@ export class BoardOfDirectors extends PreludeCard implements IActionCard {
       resourceType: CardResource.DIRECTOR,
 
       behavior: {
-        addResources: 4,
+        addResources: 10
       },
 
       metadata: {
         cardNumber: 'P45',
         renderData: CardRenderer.builder((b) => {
           b.plainText('ACTION: ').arrow().br;
-          b.plainText('DRAW 1 PRELUDE CARD: EITHER DISCARD IT, OR PAY 12 M€ AND REMOVE 1 DIRECTOR RESOURCE HERE TO PLAY IT.').br;
+          b.plainText('DRAW 1 PRELUDE CARD: EITHER DISCARD IT, OR PAY 13 M€ AND REMOVE 1 DIRECTOR RESOURCE HERE TO PLAY IT.').br;
           b.resource(CardResource.DIRECTOR, 4);
         }),
         description: 'Add 4 director resources here.',
@@ -35,7 +35,7 @@ export class BoardOfDirectors extends PreludeCard implements IActionCard {
   }
 
   public canAct(player: IPlayer) {
-    if (!player.canAfford(12)) {
+    if (!player.canAfford(13)) {
       this.warnings.add('cannotAffordBoardOfDirectors');
     }
     return this.resourceCount > 0 && player.game.preludeDeck.canDraw(1);
@@ -52,17 +52,17 @@ export class BoardOfDirectors extends PreludeCard implements IActionCard {
     const game = player.game;
     const prelude = game.preludeDeck.drawOrThrow(player.game);
 
-    if (player.canAfford(12)) {
-      if (prelude.canPlay?.(player, {cost: 12}) === false) {
+    if (player.canAfford(13)) {
+      if (prelude.canPlay?.(player, {cost: 13}) === false) {
         prelude.warnings.add('preludeFizzle');
       }
 
       return new SelectCard(
-        message('Would you like pay 12 M€ and one Director to play ${0}', (b)=> b.card(prelude)),
+        message('Would you like pay 13 M€ and one Director to play ${0}', (b)=> b.card(prelude)),
         'Buy', [prelude], {min: 0, max: 1}).andThen((selected) => {
         if (selected.length === 1) {
           const card = selected[0];
-          game.defer(new SelectPaymentDeferred(player, 12, {title: 'Select how to pay 12 M€'})).andThen(() => {
+          game.defer(new SelectPaymentDeferred(player, 13, {title: 'Select how to pay 13 M€'})).andThen(() => {
             player.removeResourceFrom(this, 1);
             if (card.canPlay?.(player) === false) {
               PreludesExpansion.fizzle(player, card);

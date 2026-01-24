@@ -13,7 +13,7 @@ export class RoboticWorkforce extends RoboticWorkforceBase {
       type: CardType.AUTOMATED,
       name: CardName.ROBOTIC_WORKFORCE,
       tags: [Tag.SCIENCE],
-      cost: 9,
+      cost: 10,
       metadata: {
         cardNumber: '086',
         hasExternalHelp: true,

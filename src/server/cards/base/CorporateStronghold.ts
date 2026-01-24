@@ -11,21 +11,20 @@ export class CorporateStronghold extends Card implements IProjectCard {
       type: CardType.AUTOMATED,
       name: CardName.CORPORATE_STRONGHOLD,
       tags: [Tag.CITY, Tag.BUILDING],
-      cost: 11,
+      cost: 18,
 
       behavior: {
-        production: {energy: -1, megacredits: 3},
+        production: {megacredits: 2},
         city: {},
       },
       victoryPoints: -1,
 
       metadata: {
         cardNumber: '182',
-        description: 'Decrease your energy production 1 step and increase your M€ production 3 steps. Place a city tile.',
+        description: 'Increase your M€ production 2 steps. Place a city tile.',
         renderData: CardRenderer.builder((b) => {
           b.production((pb) => {
-            pb.minus().energy(1).br;
-            pb.plus().megacredits(3);
+            pb.plus().megacredits(2);
           }).nbsp.nbsp.city();
         }),
       },

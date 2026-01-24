@@ -24,7 +24,7 @@ export class MoholeArea extends Card implements IProjectCard {
       type: CardType.AUTOMATED,
       name,
       tags: [Tag.BUILDING],
-      cost: 20,
+      cost: 19,
       metadata,
 
       behavior: {

@@ -17,15 +17,15 @@ export class NitrogenFromTitan extends Card implements IProjectCard {
 
       behavior: {
         tr: 2,
-        addResourcesToAnyCard: {type: CardResource.FLOATER, count: 2, tag: Tag.JOVIAN},
+        addResourcesToAnyCard: {type: CardResource.FLOATER, count: 3, tag: Tag.JOVIAN},
       },
 
       metadata: {
         cardNumber: 'C28',
         renderData: CardRenderer.builder((b) => {
-          b.tr(2).resource(CardResource.FLOATER, {amount: 2, secondaryTag: Tag.JOVIAN});
+          b.tr(2).resource(CardResource.FLOATER, {amount: 3, secondaryTag: Tag.JOVIAN});
         }),
-        description: 'Raise your TR 2 steps. Add 2 floaters to a JOVIAN CARD.',
+        description: 'Raise your TR 2 steps. Add 3 floaters to a JOVIAN CARD.',
       },
     });
   }

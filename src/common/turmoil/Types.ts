@@ -8,7 +8,15 @@ export type AgendaStyle =
   /** The incoming chairman sets the incoming policy and bonus each generation. */
   'Chairman';
 
-const PARTIES = ['m', 's', 'u', 'k', 'r', 'g'] as const;
+// Base parties (original 6)
+const BASE_PARTIES = ['m', 's', 'u', 'k', 'r', 'g'] as const;
+
+// Society expansion parties (new 6)
+const SOCIETY_PARTIES = ['sp', 'e', 'p', 'b', 't', 'c'] as const;
+
+// All parties combined
+const PARTIES = [...BASE_PARTIES, ...SOCIETY_PARTIES] as const;
+
 const BONUS_SUFFIXES = ['b01', 'b02'] as const;
 const POLICY_SUFFIXES = ['p01', 'p02', 'p03', 'p04'] as const;
 

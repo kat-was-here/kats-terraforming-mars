@@ -16,7 +16,7 @@ export class Neil extends CeoCard {
       metadata: {
         cardNumber: 'L34',
         renderData: CardRenderer.builder((b) => {
-          b.effect('Gain 2 M€ when any player plays a Moon tag.', (eb) => eb.tag(Tag.MOON, {all}).startEffect.megacredits(1));
+          b.effect('Gain 2 M€ when any player plays a Moon tag.', (eb) => eb.tag(Tag.MOON, {all}).startEffect.megacredits(2));
           b.br.br;
           b.opgArrow().production((pb) => pb.megacredits(2, {text: '?'})).asterix();
         }),

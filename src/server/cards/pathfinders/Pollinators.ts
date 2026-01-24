@@ -14,7 +14,7 @@ export class Pollinators extends ActionCard implements IProjectCard {
       cost: 19,
       tags: [Tag.PLANT, Tag.ANIMAL],
       resourceType: CardResource.ANIMAL,
-      requirements: {tag: Tag.PLANT, count: 3},
+      requirements: {tag: Tag.PLANT, count: 4},
       victoryPoints: {resourcesHere: {}},
 
       behavior: {
@@ -32,7 +32,7 @@ export class Pollinators extends ActionCard implements IProjectCard {
           b.production((pb) => pb.plants(1).megacredits(2));
           b.vpText('1 VP per animal on this card.');
         }),
-        description: 'Requires 3 plant tags. Raise your plant production 1 step and your M€ production 2 steps.',
+        description: 'Requires 4 plant tags. Raise your plant production 1 step and your M€ production 2 steps.',
       },
     });
   }

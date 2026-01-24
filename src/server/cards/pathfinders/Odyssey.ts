@@ -14,12 +14,18 @@ export class Odyssey extends CorporationCard implements ICorporationCard, IActio
     super({
       name: CardName.ODYSSEY,
       startingMegaCredits: 33,
+      tags: [Tag.SCIENCE], 
+
+      firstAction: {
+        text: 'Draw 3 cards',
+        drawCard: {count: 3}, 
+      },
 
       metadata: {
         cardNumber: 'PfC18',
-        description: 'You start with 33 M€.',
+        description: 'You start with 33 M€. As your first action, draw 3 cards.',
         renderData: CardRenderer.builder((b) => {
-          b.megacredits(33);
+          b.megacredits(33).cards(3).br; // ✅ Show starting MC and card draw
           b.colon().cards(1, {secondaryTag: Tag.EVENT}).asterix().br;
           b.text('(Effect: Your event cards stay face up, and their tags are in use as if those were automated (green) cards.)',
             Size.TINY, false, false).br;
@@ -37,7 +43,6 @@ export class Odyssey extends CorporationCard implements ICorporationCard, IActio
   public getCheckLoops(): number {
     return this.checkLoops;
   }
-
 
   private availableEventCards(player: IPlayer) {
     this.checkLoops++;

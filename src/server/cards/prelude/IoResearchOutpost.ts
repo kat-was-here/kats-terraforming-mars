@@ -18,9 +18,9 @@ export class IoResearchOutpost extends PreludeCard {
         cardNumber: 'P16',
         renderData: CardRenderer.builder((b) => {
           b.production((pb) => pb.titanium(1)).br;
-          b.cards(1);
+          b.cards(2);
         }),
-        description: 'Increase your titanium production 1 step. Draw a card.',
+        description: 'Increase your titanium production 1 step. Draw 2 cards.',
       },
     });
   }

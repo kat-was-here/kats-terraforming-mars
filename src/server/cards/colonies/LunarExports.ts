@@ -9,7 +9,7 @@ import {Size} from '../../../common/cards/render/Size';
 export class LunarExports extends Card implements IProjectCard {
   constructor() {
     super({
-      cost: 19,
+      cost: 20,
       tags: [Tag.EARTH, Tag.SPACE],
       name: CardName.LUNAR_EXPORTS,
       type: CardType.AUTOMATED,

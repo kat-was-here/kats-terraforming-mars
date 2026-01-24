@@ -6,6 +6,12 @@ import {Unity} from './parties/Unity';
 import {Kelvinists} from './parties/Kelvinists';
 import {Reds} from './parties/Reds';
 import {Greens} from './parties/Greens';
+import {Spome} from './parties/Spome';
+import {Empower} from './parties/Empower';
+import {Populists} from './parties/Populists';
+import {Bureaucrats} from './parties/Bureaucrats';
+import {Transhumans} from './parties/Transhumans';
+import {Centrists} from './parties/Centrists';
 import {IGame} from '../IGame';
 import {GlobalEventDealer, getGlobalEventByName} from './globalEvents/GlobalEventDealer';
 import {IGlobalEvent} from './globalEvents/IGlobalEvent';
@@ -35,9 +41,18 @@ export const ALL_PARTIES: Record<PartyName, PartyFactory> = {
   [PartyName.GREENS]: Greens,
   [PartyName.REDS]: Reds,
   [PartyName.KELVINISTS]: Kelvinists,
+  [PartyName.SPOME]: Spome,
+  [PartyName.EMPOWER]: Empower,
+  [PartyName.POPULISTS]: Populists,
+  [PartyName.BUREAUCRATS]: Bureaucrats,
+  [PartyName.TRANSHUMANS]: Transhumans,
+  [PartyName.CENTRISTS]: Centrists,
 };
 
-function createParties(): ReadonlyArray<IParty> {
+function createParties(societyExpansion: boolean = false): ReadonlyArray<IParty> {
+  if (societyExpansion) {
+    return [new Spome(), new Empower(), new Populists(), new Bureaucrats(), new Transhumans(), new Centrists()];
+  }
   return [new MarsFirst(), new Scientists(), new Unity(), new Greens(), new Reds(), new Kelvinists()];
 }
 
@@ -62,26 +77,27 @@ export class Turmoil {
 
   private constructor(
     rulingPartyName: PartyName,
-    chairman: Delegate,
+    chairman: PlayerId | 'NEUTRAL',
     dominantPartyName: PartyName,
-    globalEventDealer: GlobalEventDealer) {
+    globalEventDealer: GlobalEventDealer,
+    parties: PartyName[]) {
     this.rulingParty = this.getPartyByName(rulingPartyName);
     this.chairman = chairman;
     this.dominantParty = this.getPartyByName(dominantPartyName);
     this.globalEventDealer = globalEventDealer;
   }
 
-  public static newInstance(game: IGame, agendaStyle: AgendaStyle = 'Standard'): Turmoil {
+  public static newInstance(game: IGame, agendaStyle: AgendaStyle = 'Standard', societyExpansion: boolean = false): Turmoil {
     const dealer = GlobalEventDealer.newInstance(game);
 
-    // The game begins with Greens in power and a Neutral chairman
-    const turmoil = new Turmoil(PartyName.GREENS, 'NEUTRAL', PartyName.GREENS, dealer);
-
+    // The game begins with Greens/Spome in power and a Neutral chairman
+    const rulingParty = societyExpansion ? PartyName.SPOME : PartyName.GREENS;
+    const turmoil = new Turmoil(rulingParty, 'NEUTRAL', rulingParty, dealer);
     game.log('A neutral delegate is the new chairman.');
-    game.log('Greens are in power in the first generation.');
+    game.log(`${turmoil.rulingParty.name} are in power in the first generation.`);
 
     // Init parties
-    turmoil.parties = createParties();
+    turmoil.parties = createParties(societyExpansion);
 
     game.playersInGenerationOrder.forEach((player) => {
       turmoil.delegateReserve.add(player, DELEGATES_PER_PLAYER);
@@ -575,7 +591,6 @@ export class Turmoil {
     const dealer = GlobalEventDealer.deserialize(d.globalEventDealer);
     const chairman = deserializeDelegateOrUndefined(d.chairman, players);
     const turmoil = new Turmoil(d.rulingParty, chairman || 'NEUTRAL', d.dominantParty, dealer);
-
     turmoil.usedFreeDelegateAction = new Set(d.usedFreeDelegateAction.map((p) => deserializePlayerId(p, players)));
 
     turmoil.delegateReserve = MultiSet.from(d.delegateReserve.map((p) => deserializeDelegate(p, players)));

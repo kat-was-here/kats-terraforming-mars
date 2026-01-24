@@ -11,16 +11,16 @@ export class SelfSufficientSettlement extends PreludeCard implements IProjectCar
       tags: [Tag.BUILDING, Tag.CITY],
 
       behavior: {
-        production: {megacredits: 2},
+        production: {megacredits: 3},
         city: {},
       },
 
       metadata: {
         cardNumber: 'P29',
         renderData: CardRenderer.builder((b) => {
-          b.production((pb) => pb.megacredits(2)).city();
+          b.production((pb) => pb.megacredits(3)).city();
         }),
-        description: 'Increase your M€ production 2 steps. Place a city tile.',
+        description: 'Increase your M€ production 3 steps. Place a city tile.',
       },
     });
   }

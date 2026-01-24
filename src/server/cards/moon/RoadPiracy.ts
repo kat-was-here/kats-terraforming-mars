@@ -28,11 +28,11 @@ export class RoadPiracy extends Card implements IProjectCard {
 
       metadata: {
         description: 'Requires 3 logistic rate. ' +
-          'Steal up to 6 steel or 4 titanium from other players. ' +
+          'Steal up to 5 steel or 3 titanium from other players. ' +
           '(Resources may be stolen from more than 1 opponent.)',
         cardNumber: 'M54',
         renderData: CardRenderer.builder((b) => {
-          b.text('STEAL').steel(6, {all}).slash().titanium(4, {all, digit}).asterix();
+          b.text('STEAL').steel(5, {all}).slash().titanium(3, {all, digit}).asterix();
         }),
       },
     });

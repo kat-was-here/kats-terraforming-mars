@@ -1,3 +1,5 @@
+import {GlobalEventDealer} from './globalEvents/GlobalEventDealer';
+import {Turmoil} from './Turmoil';
 import * as constants from '../../common/constants';
 import {ICard} from '../cards/ICard';
 import {GlobalParameter} from '../../common/GlobalParameter';
@@ -15,6 +17,9 @@ import {REDS_POLICY_2} from './parties/Reds';
 import {MoonExpansion} from '../moon/MoonExpansion';
 import {TRSource} from '../../common/cards/TRSource';
 import {IPolicy, policyDescription} from './Policy';
+import {SPOME_POLICY_3} from './parties/Spome';
+import {EMPOWER_POLICY_2} from './parties/Empower';
+import {POPULISTS_POLICY_2, POPULISTS_POLICY_4} from './parties/Populists';
 
 export class TurmoilHandler {
   private constructor() {}
@@ -50,6 +55,11 @@ export class TurmoilHandler {
     }
   }
 
+   // Society Spome P3 hook
+  if (PartyHooks.shouldApplyPolicy(player, PartyName.SPOME, 'spp03')) {
+    SPOME_POLICY_3.onTilePlaced(player);
+  }
+
   public static resolveTilePlacementBonuses(player: IPlayer, spaceType: SpaceType): void {
     PartyHooks.applyMarsFirstRulingPolicy(player, spaceType);
 
@@ -72,6 +82,16 @@ export class TurmoilHandler {
       }
     }
 
+     // Society Empower P2 hook
+   if (PartyHooks.shouldApplyPolicy(player, PartyName.EMPOWER, 'ep02')) {
+     EMPOWER_POLICY_2.onTilePlaced(player);
+   }
+
+     // Society Populists P4 hook
+   if (PartyHooks.shouldApplyPolicy(player, PartyName.POPULISTS, 'pp04')) {
+     POPULISTS_POLICY_4.onTilePlaced(player);
+   }
+
     // PoliticalAgendas Reds P4 hook
     if (PartyHooks.shouldApplyPolicy(player, PartyName.REDS, 'rp04')) {
       player.production.add(Resource.MEGACREDITS, -1 * steps, {log: true});
@@ -81,6 +101,11 @@ export class TurmoilHandler {
     if (PartyHooks.shouldApplyPolicy(player, PartyName.SCIENTISTS, 'sp03')) {
       player.drawCard(steps);
     }
+  }
+
+    // Society Populists P2 hook
+  if (PartyHooks.shouldApplyPolicy(player, PartyName.POPULISTS, 'pp02')) {
+    POPULISTS_POLICY_2.onCardPlayed(player, selectedCard);
   }
 
   public static computeTerraformRatingBump(player: IPlayer, tr: TRSource = {}): number {

@@ -11,7 +11,7 @@ export class PersonalAgenda extends PreludeCard {
       name: CardName.PERSONAL_AGENDA,
 
       behavior: {
-        production: {megacredits: 3},
+        production: {megacredits: 4},
       },
 
       metadata: {
@@ -26,7 +26,7 @@ export class PersonalAgenda extends PreludeCard {
     });
   }
   public override bespokePlay(player: IPlayer) {
-    player.drawCard(3, {
+    player.drawCard(4, {
       include: (card) => {
         return card.type === CardType.EVENT &&
           (card.tags.includes(Tag.SPACE) === false);

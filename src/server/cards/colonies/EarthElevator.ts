@@ -8,11 +8,11 @@ import {CardRenderer} from '../render/CardRenderer';
 export class EarthElevator extends Card implements IProjectCard {
   constructor() {
     super({
-      cost: 43,
+      cost: 40,
       tags: [Tag.SPACE, Tag.EARTH],
       name: CardName.EARTH_ELEVATOR,
       type: CardType.AUTOMATED,
-      victoryPoints: 4,
+      victoryPoints: 3,
 
       behavior: {
         production: {titanium: 3},

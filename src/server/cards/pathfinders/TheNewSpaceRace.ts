@@ -20,9 +20,9 @@ export class TheNewSpaceRace extends PreludeCard implements IProjectCard {
       metadata: {
         cardNumber: 'PfP14',
         renderData: CardRenderer.builder((b) => {
-          b.firstPlayer().rulingParty().megacredits(12).br;
+          b.firstPlayer().rulingParty().megacredits(15).br;
         }),
-        description: 'REVEALED BEFORE ANY OTHER PRELUDE. You become starting player for the game. Choose and set a ruling policy for the first generation. Gain 12 M€.',
+        description: 'REVEALED BEFORE ANY OTHER PRELUDE. You become starting player for the game. Choose and set a ruling policy for the first generation. Gain 15 M€.',
       },
     });
   }

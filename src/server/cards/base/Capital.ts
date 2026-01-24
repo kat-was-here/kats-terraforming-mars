@@ -18,13 +18,13 @@ export class Capital extends Card implements IProjectCard {
     metadata: CardMetadata = {
       cardNumber: '008',
       description: {
-        text: 'Requires 4 ocean tiles. Place this tile. Decrease your energy production 2 steps and increase your M€ production 5 steps.',
+        text: 'Requires 4 ocean tiles. Place this tile. Decrease your energy production 2 steps and increase your M€ production 7 steps.',
         align: 'left',
       },
       renderData: CardRenderer.builder((b) => {
         b.production((pb) => {
           pb.minus().energy(2).br;
-          pb.plus().megacredits(5);
+          pb.plus().megacredits(7);
         }).nbsp.tile(TileType.CAPITAL, false).br;
         b.vpText('1 additional VP for each ocean tile adjacent to this city tile.');
       }),
