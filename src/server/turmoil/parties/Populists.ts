@@ -61,7 +61,7 @@ class PopulistsPolicy02 implements IPolicy {
 
   onCardPlayed(player: IPlayer, card: ICard) {
     if (card.victoryPoints !== undefined) {
-      const vp = typeof card.victoryPoints === 'function' ? card.victoryPoints(player) : card.victoryPoints;
+      const vp = typeof card.victoryPoints === 'number' ? card.victoryPoints : 0;
       if (vp > 0) {
         player.stock.deduct(Resource.MEGACREDITS, Math.min(2, player.megaCredits));
       }

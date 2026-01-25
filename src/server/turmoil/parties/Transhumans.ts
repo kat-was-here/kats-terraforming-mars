@@ -65,13 +65,12 @@ class TranshumansPolicy02 implements IPolicy {
 
   action(player: IPlayer) {
     const game = player.game;
-    const turmoil = game.turmoil;
     
     game.log('${0} used Turmoil ${1} action', (b) => b.player(player).partyName(PartyName.TRANSHUMANS));
     
     game.defer(new SelectPaymentDeferred(player, 10, {title: TITLES.payForPartyAction(PartyName.TRANSHUMANS)}))
       .andThen(() => {
-        turmoil.addInfluenceBonus(player, 1);
+        game.turmoil!.addInfluenceBonus(player, 1);
         game.log('${0} gained 1 influence', (b) => b.player(player));
         player.turmoilPolicyActionUsed = true;
       });

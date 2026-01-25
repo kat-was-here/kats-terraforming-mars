@@ -7,7 +7,7 @@ import {IActionCard} from '../ICard';
 import {IPlayer} from '../../IPlayer';
 import {SelectCard} from '../../inputs/SelectCard';
 import {IProjectCard} from '../IProjectCard';
-import { Tag } from '@/common/cards/Tag';
+import { Tag } from '../../../common/cards/Tag';
 
 export class Midas extends CorporationCard implements ICorporationCard, IActionCard {
   constructor() {
