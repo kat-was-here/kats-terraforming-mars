@@ -24,7 +24,7 @@ export class BreathingFilters extends Card implements IProjectCard {
         cardNumber: '114',
         renderData: CardRenderer.builder((b) => {
           b.effect('Remove 2 microbes from any cards.', (eb) => {
-            eb.resource(CardResource.MICROBE, {all}).minus().text('2');
+            eb.empty().startEffect.resource(CardResource.MICROBE, {all}).minus().text('2');
           });
         }),
       },

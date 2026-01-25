@@ -23,10 +23,10 @@ export class SearchForLife extends Card implements IActionCard, IProjectCard {
       resourceType: CardResource.SCIENCE,
       victoryPoints: 'special',
 
-      requirements: {oxygen: 16, max},
+      requirements: {oxygen: 12, max},
       metadata: {
         cardNumber: '005',
-        description: 'Oxygen must be 16% or less.',
+        description: 'Oxygen must be 12% or less.',
         renderData: CardRenderer.builder((b) => {
           b.action('Spend 1 M€ to reveal the top card of the draw deck. If that card has a microbe tag, add a science resource here.', (eb) => {
             eb.megacredits(1).startAction.tag(Tag.MICROBE).asterix().nbsp.colon().nbsp.resource(CardResource.SCIENCE);
