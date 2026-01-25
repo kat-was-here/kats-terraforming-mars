@@ -110,6 +110,7 @@ export const DEFAULT_GAME_OPTIONS: GameOptions = {
     ceo: false,
     starwars: false,
     underworld: false,
+    society: false,
   },
   fastModeOption: false,
   includeFanMA: false,
