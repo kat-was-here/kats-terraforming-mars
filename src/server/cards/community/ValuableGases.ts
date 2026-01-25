@@ -15,17 +15,17 @@ export class ValuableGases extends PreludeCard implements IProjectCard {
       name: CardName.VALUABLE_GASES,
       tags: [Tag.JOVIAN, Tag.VENUS],
       behavior: {
-        stock: {megacredits: 6},
+        stock: {megacredits: 9},
       },
 
       metadata: {
         cardNumber: 'Y06',
         renderData: CardRenderer.builder((b) => {
-          b.megacredits(6).br.br;
+          b.megacredits(9).br.br;
           b.text('play', Size.MEDIUM, true).cards(1, {secondaryTag: Tag.VENUS}).colon();
           b.resource(CardResource.FLOATER, {amount: 6, digit});
         }),
-        description: 'Gain 6 M€. Play a Venus card from your hand and add 6 floaters to it.',
+        description: 'Gain 9 M€. Play a Venus card from your hand and add 6 floaters to it.',
       },
     });
   }

@@ -13,7 +13,7 @@ export class FrontierTown extends Card implements IProjectCard {
     super({
       name: CardName.FRONTIER_TOWN,
       type: CardType.AUTOMATED,
-      cost: 11,
+      cost: 13,
       tags: [Tag.CITY, Tag.BUILDING],
 
       requirements: {party: PartyName.MARS},

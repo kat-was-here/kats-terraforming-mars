@@ -14,7 +14,7 @@ import {Tag} from '../../../common/cards/Tag';
 export class SpecialPermit extends Card implements IProjectCard {
   constructor() {
     super({
-      cost: 5,
+      cost: 7,
       name: CardName.SPECIAL_PERMIT,
       type: CardType.EVENT,
       tags: [Tag.PLANT],

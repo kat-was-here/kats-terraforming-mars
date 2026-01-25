@@ -11,7 +11,7 @@ export class EconomicEspionage extends ActionCard implements IProjectCard {
     super({
       type: CardType.ACTIVE,
       name: CardName.ECONOMIC_ESPIONAGE,
-      cost: 8,
+      cost: 6,
       tags: [Tag.EARTH],
       resourceType: CardResource.DATA,
       victoryPoints: {resourcesHere: {}, per: 3},

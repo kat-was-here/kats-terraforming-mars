@@ -24,11 +24,11 @@ export class SurveyMission extends PreludeCard {
       metadata: {
         cardNumber: 'PfP07',
         renderData: CardRenderer.builder((b) => {
-          b.steel(5, {digit});
+          b.steel(6, {digit});
           b.br;
           b.surveyMission();
         }),
-        description: 'Gain 5 steel. Land-claim three non-reserved spaces in a triangle shape. Gain all placement bonuses. ' +
+        description: 'Gain 6 steel. Land-claim three non-reserved spaces in a triangle shape. Gain all placement bonuses. ' +
           'Only you may place tiles there, and will gain placement bonuses again.',
       },
     });

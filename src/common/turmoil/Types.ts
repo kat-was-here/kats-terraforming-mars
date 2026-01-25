@@ -19,7 +19,7 @@ const PARTIES = [...BASE_PARTIES, ...SOCIETY_PARTIES] as const;
 
 const BONUS_SUFFIXES = ['b01', 'b02'] as const;
 const POLICY_SUFFIXES = ['p01', 'p02', 'p03', 'p04'] as const;
-
+  
 type Party = typeof PARTIES[number];
 type BonusSuffix = typeof BONUS_SUFFIXES[number]
 type PolicySuffix = typeof POLICY_SUFFIXES[number];

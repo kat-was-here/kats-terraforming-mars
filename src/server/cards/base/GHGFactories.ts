@@ -12,21 +12,21 @@ export class GHGFactories extends Card implements IProjectCard {
       type: CardType.AUTOMATED,
       name: CardName.GHG_FACTORIES,
       tags: [Tag.BUILDING],
-      cost: 11,
+      cost: 15,
 
       behavior: {
-        production: {energy: -1, heat: 4},
+        production: {energy: 1, heat: 4},
       },
 
       metadata: {
         cardNumber: '126',
         renderData: CardRenderer.builder((b) => {
           b.production((pb) => {
-            pb.minus().energy(1).br;
+            pb.plus().energy(1).br;
             pb.plus().heat(4, {digit});
           });
         }),
-        description: 'Decrease your energy production 1 step and increase your heat production 4 steps.',
+        description: 'Increase your energy production 1 step and your heat production 4 steps.',
       },
     });
   }

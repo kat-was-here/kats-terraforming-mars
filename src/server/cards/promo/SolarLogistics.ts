@@ -13,11 +13,11 @@ export class SolarLogistics extends Card implements IProjectCard {
     super({
       type: CardType.ACTIVE,
       name: CardName.SOLAR_LOGISTICS,
-      cost: 20,
+      cost: 22,
       tags: [Tag.EARTH, Tag.SPACE],
 
       behavior: {
-        stock: {titanium: 2},
+        stock: {titanium: 3},
       },
       victoryPoints: 1,
       cardDiscount: {tag: Tag.EARTH, amount: 2},
@@ -33,7 +33,7 @@ export class SolarLogistics extends Card implements IProjectCard {
           b.br;
           b.titanium(2);
         }),
-        description: 'Gain 2 titanium.',
+        description: 'Gain 3 titanium.',
       },
     });
   }

@@ -11,16 +11,16 @@ export class DesignCompany extends PreludeCard {
 
       behavior: {
         production: {steel: 1},
-        drawCard: {count: 3, tag: Tag.BUILDING},
+        drawCard: {count: 4, tag: Tag.BUILDING},
       },
 
       metadata: {
         cardNumber: 'PfP08',
         renderData: CardRenderer.builder((b) => {
           b.production((pb) => pb.steel(1)).br;
-          b.cards(3, {secondaryTag: Tag.BUILDING});
+          b.cards(4, {secondaryTag: Tag.BUILDING});
         }),
-        description: 'Increase your steel production 1 step. Draw 3 cards with a building tag.',
+        description: 'Increase your steel production 1 step. Draw 4 cards with a building tag.',
       },
     });
   }

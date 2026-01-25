@@ -25,41 +25,44 @@ export class CassiniStation extends Card implements IProjectCard {
         cardNumber: 'Pf62',
         renderData: CardRenderer.builder((b) => {
           b.production((pb) => pb.energy(1).slash().colonies(1, {all})).br;
-          b.resource(CardResource.FLOATER, 2).asterix().or().br;
+          b.resource(CardResource.FLOATER, 2).asterix().br;
           b.resource(CardResource.DATA, 3).asterix();
         }),
         description: 'Increase your energy production 1 step for every colony in play. ' +
-          'Add 2 floaters to ANY card OR add 3 data to ANY card.',
+          'Add 2 floaters to ANY card AND add 3 data to ANY card.',
       },
     });
   }
 
   public override bespokePlay(player: IPlayer) {
-    const cards = [
-      ...player.getResourceCards(CardResource.FLOATER),
-      ...player.getResourceCards(CardResource.DATA),
-    ];
+    const floaterCards = player.getResourceCards(CardResource.FLOATER);
+    const dataCards = player.getResourceCards(CardResource.DATA);
 
-    if (cards.length === 0) {
+    if (floaterCards.length === 0 && dataCards.length === 0) {
       return undefined;
     }
-    const input = new SelectCard(
-      'Select card to gain 2 floaters or 3 data',
-      'Add resources',
-      cards)
-      .andThen(([card]) => {
-        if (card.resourceType === CardResource.FLOATER) {
-          player.addResourceTo(card, {qty: 2, log: true});
-        } else {
-          player.addResourceTo(card, {qty: 3, log: true});
-        }
-        return undefined;
-      });
 
-    if (cards.length === 1) {
-      input.cb(cards);
-      return undefined;
+    // Always add both: 2 floaters and 3 data
+    const floaterInput = floaterCards.length > 0
+      ? new SelectCard('Select card to gain 2 floaters', 'Add floaters', floaterCards)
+          .andThen(([card]) => {
+            player.addResourceTo(card, {qty: 2, log: true});
+            return undefined;
+          })
+      : undefined;
+
+    const dataInput = dataCards.length > 0
+      ? new SelectCard('Select card to gain 3 data', 'Add data', dataCards)
+          .andThen(([card]) => {
+            player.addResourceTo(card, {qty: 3, log: true});
+            return undefined;
+          })
+      : undefined;
+
+    if (floaterInput && dataInput) {
+      // Chain both selections
+      return floaterInput.andThen(() => dataInput);
     }
-    return input;
+    return floaterInput ?? dataInput;
   }
 }

@@ -18,7 +18,7 @@ export class SpecializedSettlement extends Card implements IProjectCard {
       type: CardType.AUTOMATED,
       name: CardName.SPECIALIZED_SETTLEMENT,
       tags: [Tag.CITY, Tag.BUILDING, Tag.MARS],
-      cost: 20,
+      cost: 26,
 
       metadata: {
         cardNumber: 'PF57',

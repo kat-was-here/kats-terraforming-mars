@@ -11,15 +11,11 @@ export class Manutech extends CorporationCard implements ICorporationCard {
     super({
       name: CardName.MANUTECH,
       tags: [Tag.BUILDING],
-      startingMegaCredits: 25,
-
-      behavior: {
-        production: {steel: 1},
-      },
+      startingMegaCredits: 35,
 
       metadata: {
         cardNumber: 'R23',
-        description: 'You start with 1 steel production, and 25 M€.',
+        description: 'You start with 35 M€.',
         renderData: CardRenderer.builder((b) => {
           b.br.br;
           b.production((pb) => pb.steel(1)).nbsp.megacredits(25);

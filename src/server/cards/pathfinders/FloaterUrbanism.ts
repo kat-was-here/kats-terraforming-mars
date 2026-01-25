@@ -17,7 +17,7 @@ export class FloaterUrbanism extends Card implements IProjectCard, IActionCard {
       cost: 7,
       tags: [Tag.VENUS],
       resourceType: CardResource.VENUSIAN_HABITAT,
-      requirements: {tag: Tag.VENUS, count: 4},
+      requirements: {tag: Tag.VENUS, count: 5},
       victoryPoints: {resourcesHere: {}},
 
       metadata: {
@@ -28,7 +28,7 @@ export class FloaterUrbanism extends Card implements IProjectCard, IActionCard {
           }).br;
           b.vpText('1 VP for every Venusian habitat on this card.');
         }),
-        description: 'Requires 4 Venus tags.',
+        description: 'Requires 5 Venus tags.',
       },
     });
   }

@@ -15,7 +15,7 @@ export class EconomicHelp extends Card implements IProjectCard {
     super({
       type: CardType.EVENT,
       name: CardName.ECONOMIC_HELP,
-      cost: 9,
+      cost: 7,
 
       behavior: {
         production: {megacredits: 1},

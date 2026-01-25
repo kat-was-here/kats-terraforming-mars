@@ -15,7 +15,7 @@ import {ColoniesHandler} from '../../colonies/ColoniesHandler';
 export class HuygensObservatory extends Card implements IProjectCard {
   constructor() {
     super({
-      cost: 27,
+      cost: 26,
       tags: [Tag.SCIENCE, Tag.SPACE],
       name: CardName.HUYGENS_OBSERVATORY,
       type: CardType.AUTOMATED,

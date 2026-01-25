@@ -8,7 +8,7 @@ import {Card} from '../Card';
 export class SpacePort extends Card implements IProjectCard {
   constructor() {
     super({
-      cost: 22,
+      cost: 25,
       tags: [Tag.CITY, Tag.BUILDING],
       name: CardName.SPACE_PORT,
       type: CardType.AUTOMATED,

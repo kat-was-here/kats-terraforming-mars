@@ -11,7 +11,7 @@ export class MedicalLab extends Card implements IProjectCard {
       type: CardType.AUTOMATED,
       name: CardName.MEDICAL_LAB,
       tags: [Tag.SCIENCE, Tag.BUILDING],
-      cost: 13,
+      cost: 14,
       victoryPoints: 1,
 
       behavior: {

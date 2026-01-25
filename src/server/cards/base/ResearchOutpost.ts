@@ -13,6 +13,8 @@ export class ResearchOutpost extends Card implements IProjectCard {
       tags: [Tag.SCIENCE, Tag.CITY, Tag.BUILDING],
       cost: 18,
 
+      requirements: {oxygen: 2}, // ✅ oxygen requirement
+
       behavior: {
         city: {on: 'isolated'},
       },
@@ -26,7 +28,7 @@ export class ResearchOutpost extends Card implements IProjectCard {
           }).br;
           b.city();
         }),
-        description: 'Place a city tile NEXT TO NO OTHER TILE.',
+        description: 'Requires 2% oxygen. Place a city tile NEXT TO NO OTHER TILE.',
       },
     });
   }

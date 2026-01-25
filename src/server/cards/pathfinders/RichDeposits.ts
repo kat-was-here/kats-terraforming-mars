@@ -10,7 +10,7 @@ export class RichDeposits extends Card implements IProjectCard {
     super({
       type: CardType.AUTOMATED,
       name: CardName.RICH_DEPOSITS,
-      cost: 12,
+      cost: 15,
 
       behavior: {
         production: {steel: 3},

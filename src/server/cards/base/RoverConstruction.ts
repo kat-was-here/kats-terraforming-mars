@@ -19,7 +19,7 @@ export class RoverConstruction extends Card implements IProjectCard {
       type: CardType.ACTIVE,
       name: CardName.ROVER_CONSTRUCTION,
       tags: [Tag.BUILDING],
-      cost: 8,
+      cost: 9,
       victoryPoints: 1,
 
       metadata: {

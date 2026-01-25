@@ -22,7 +22,7 @@ export class TempestConsultancy extends CorporationCard implements ICorporationC
       },
 
       metadata: {
-        description: 'You start with 32 M€. As your first action, place 2 delegates in one party.',
+        description: 'You start with 37 M€. As your first action, place 2 delegates in one party.',
         cardNumber: 'MC2',
         renderData: CardRenderer.builder((b) => {
           b.megacredits(32).delegates(1).delegates(1).br;

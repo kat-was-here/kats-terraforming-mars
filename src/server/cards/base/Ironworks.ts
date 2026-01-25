@@ -12,7 +12,7 @@ export class Ironworks extends ActionCard implements IProjectCard {
       type: CardType.ACTIVE,
       name: CardName.IRONWORKS,
       tags: [Tag.BUILDING],
-      cost: 11,
+      cost: 13,
 
       action: {
         spend: {energy: 4},
@@ -23,8 +23,8 @@ export class Ironworks extends ActionCard implements IProjectCard {
       metadata: {
         cardNumber: '101',
         renderData: CardRenderer.builder((b) => {
-          b.action('Spend 4 energy to gain 1 steel and raise oxygen 1 step.', (eb) => {
-            eb.energy(4, {digit}).startAction.steel(1).oxygen(1);
+          b.action('Spend 3 energy to gain 1 steel and raise oxygen 1 step.', (eb) => {
+            eb.energy(3, {digit}).startAction.steel(1).oxygen(1);
           });
         }),
       },

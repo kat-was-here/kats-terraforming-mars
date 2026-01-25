@@ -11,7 +11,7 @@ export class Psyche extends Card implements IProjectCard {
       type: CardType.AUTOMATED,
       name: CardName.PSYCHE,
       tags: [Tag.SPACE],
-      cost: 33,
+      cost: 34,
       victoryPoints: 2,
       behavior: {
         production: {titanium: 2},

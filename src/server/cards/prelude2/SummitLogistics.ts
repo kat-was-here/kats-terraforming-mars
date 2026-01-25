@@ -11,7 +11,7 @@ export class SummitLogistics extends Card {
       name: CardName.SUMMIT_LOGISTICS,
       type: CardType.AUTOMATED,
       tags: [Tag.BUILDING, Tag.SPACE],
-      cost: 10,
+      cost: 12,
 
       requirements: {party: PartyName.SCIENTISTS},
 

@@ -10,7 +10,7 @@ export class LuxuryEstate extends Card implements IProjectCard {
     super({
       type: CardType.AUTOMATED,
       name: CardName.LUXURY_ESTATE,
-      cost: 12,
+      cost: 13,
       tags: [Tag.EARTH, Tag.MARS, Tag.BUILDING],
       requirements: {oxygen: 7},
 

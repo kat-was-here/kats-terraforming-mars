@@ -14,7 +14,8 @@ export class GreatEscarpmentConsortium extends Card implements IProjectCard {
     super({
       type: CardType.AUTOMATED,
       name: CardName.GREAT_ESCARPMENT_CONSORTIUM,
-      cost: 9,
+      cost: 6,
+      victoryPoints: -1,
 
       requirements: {production: Resource.STEEL, count: 1},
       metadata: {

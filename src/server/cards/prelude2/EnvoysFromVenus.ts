@@ -10,7 +10,7 @@ export class EnvoysFromVenus extends Card implements IProjectCard {
     super({
       type: CardType.EVENT,
       name: CardName.ENVOYS_FROM_VENUS,
-      cost: 1,
+      cost: 3,
       tags: [Tag.VENUS],
       requirements: {tag: Tag.VENUS, count: 3},
 

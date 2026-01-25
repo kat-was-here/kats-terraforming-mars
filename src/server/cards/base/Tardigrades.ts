@@ -12,7 +12,7 @@ export class Tardigrades extends ActionCard implements IProjectCard {
       type: CardType.ACTIVE,
       name: CardName.TARDIGRADES,
       tags: [Tag.MICROBE],
-      cost: 4,
+      cost: 3,
 
       resourceType: CardResource.MICROBE,
       victoryPoints: {resourcesHere: {}, per: 4},

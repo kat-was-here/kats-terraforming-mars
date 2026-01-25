@@ -13,7 +13,7 @@ export class ProjectInspection extends Card implements IProjectCard {
     super({
       type: CardType.EVENT,
       name: CardName.PROJECT_INSPECTION,
-      cost: 0,
+      cost: 1,
 
       metadata: {
         cardNumber: 'X02',

@@ -11,7 +11,7 @@ export class LunarBeam extends Card implements IProjectCard {
       type: CardType.AUTOMATED,
       name: CardName.LUNAR_BEAM,
       tags: [Tag.EARTH, Tag.POWER],
-      cost: 12,
+      cost: 14,
 
       behavior: {
         production: {megacredits: -2, heat: 2, energy: 2},
@@ -23,10 +23,10 @@ export class LunarBeam extends Card implements IProjectCard {
           b.production((pb) => {
             pb.minus().megacredits(2).br;
             pb.plus().heat(2).br;
-            pb.plus().energy(2);
+            pb.plus().energy(3);
           });
         }),
-        description: 'Decrease your M€ production 2 steps and increase your heat production and energy production 2 steps each.',
+        description: 'Decrease your M€ production 3 steps and increase your heat production and energy production 2 steps each.',
       },
     });
   }

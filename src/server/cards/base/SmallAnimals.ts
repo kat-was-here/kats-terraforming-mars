@@ -14,7 +14,7 @@ export class SmallAnimals extends ActionCard implements IProjectCard {
       type: CardType.ACTIVE,
       name: CardName.SMALL_ANIMALS,
       tags: [Tag.ANIMAL],
-      cost: 6,
+      cost: 5,
 
       resourceType: CardResource.ANIMAL,
       victoryPoints: {resourcesHere: {}, per: 2},

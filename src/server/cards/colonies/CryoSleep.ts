@@ -8,7 +8,7 @@ import {CardRenderer} from '../render/CardRenderer';
 export class CryoSleep extends Card implements IProjectCard {
   constructor() {
     super({
-      cost: 10,
+      cost: 11,
       tags: [Tag.SCIENCE],
       name: CardName.CRYO_SLEEP,
       type: CardType.ACTIVE,

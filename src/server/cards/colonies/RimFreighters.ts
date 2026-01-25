@@ -8,7 +8,7 @@ import {Card} from '../Card';
 export class RimFreighters extends Card implements IProjectCard {
   constructor() {
     super({
-      cost: 4,
+      cost: 5,
       tags: [Tag.SPACE],
       name: CardName.RIM_FREIGHTERS,
       type: CardType.ACTIVE,

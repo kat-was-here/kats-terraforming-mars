@@ -12,7 +12,7 @@ export class PublicPlans extends Card implements IProjectCard {
     super({
       type: CardType.EVENT,
       name: CardName.PUBLIC_PLANS,
-      cost: 7,
+      cost: 8,
 
       victoryPoints: 1,
 

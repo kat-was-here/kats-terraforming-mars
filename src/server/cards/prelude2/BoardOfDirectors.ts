@@ -27,9 +27,9 @@ export class BoardOfDirectors extends PreludeCard implements IActionCard {
         renderData: CardRenderer.builder((b) => {
           b.plainText('ACTION: ').arrow().br;
           b.plainText('DRAW 1 PRELUDE CARD: EITHER DISCARD IT, OR PAY 13 M€ AND REMOVE 1 DIRECTOR RESOURCE HERE TO PLAY IT.').br;
-          b.resource(CardResource.DIRECTOR, 4);
+          b.resource(CardResource.DIRECTOR, 10);
         }),
-        description: 'Add 4 director resources here.',
+        description: 'Add 10director resources here.',
       },
     });
   }

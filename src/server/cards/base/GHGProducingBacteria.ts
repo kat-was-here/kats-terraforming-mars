@@ -11,7 +11,7 @@ export class GHGProducingBacteria extends ActionCard {
       type: CardType.ACTIVE,
       name: CardName.GHG_PRODUCING_BACTERIA,
       tags: [Tag.SCIENCE, Tag.MICROBE],
-      cost: 8,
+      cost: 7,
       resourceType: CardResource.MICROBE,
 
       requirements: {oxygen: 2},

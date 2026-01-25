@@ -14,7 +14,7 @@ export class AstraMechanica extends Card implements IProjectCard {
       type: CardType.AUTOMATED,
       name: CardName.ASTRA_MECHANICA,
       tags: [Tag.SCIENCE],
-      cost: 7,
+      cost: 8,
 
       metadata: {
         cardNumber: 'X51',

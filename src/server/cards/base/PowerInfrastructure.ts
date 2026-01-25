@@ -15,13 +15,13 @@ export class PowerInfrastructure extends Card implements IActionCard, IProjectCa
       type: CardType.ACTIVE,
       name: CardName.POWER_INFRASTRUCTURE,
       tags: [Tag.POWER, Tag.BUILDING],
-      cost: 4,
+      cost: 12,
 
       metadata: {
         cardNumber: '194',
         renderData: CardRenderer.builder((b) => {
-          b.action('Spend any amount of energy and gain that amount of M€.', (eb) => {
-            eb.text('x').energy(1).startAction.megacredits(1, {text: 'x'});
+          b.action('Spend any amount of energy and gain twice that amount of M€.', (eb) => {
+            eb.text('x').energy(1).startAction.megacredits(2, {text: 'x'});
           });
         }),
       },

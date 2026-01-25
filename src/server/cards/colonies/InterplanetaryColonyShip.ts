@@ -8,7 +8,7 @@ import {CardRenderer} from '../render/CardRenderer';
 export class InterplanetaryColonyShip extends Card implements IProjectCard {
   constructor() {
     super({
-      cost: 13,
+      cost: 14,
       tags: [Tag.SPACE, Tag.EARTH],
       name: CardName.INTERPLANETARY_COLONY_SHIP,
       type: CardType.EVENT,

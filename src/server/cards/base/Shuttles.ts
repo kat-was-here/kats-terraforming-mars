@@ -11,7 +11,7 @@ export class Shuttles extends Card implements IProjectCard {
       type: CardType.ACTIVE,
       name: CardName.SHUTTLES,
       tags: [Tag.SPACE],
-      cost: 10,
+      cost: 9,
       victoryPoints: 1,
 
       behavior: {

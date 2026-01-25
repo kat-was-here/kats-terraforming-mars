@@ -12,7 +12,7 @@ export class KuiperCooperative extends CorporationCard implements ICorporationCa
   constructor() {
     super({
       name: CardName.KUIPER_COOPERATIVE,
-      tags: [Tag.SPACE, Tag.SPACE, Tag.SPACE, Tag.SPACE],
+      tags: [Tag.SPACE, Tag.SPACE, Tag.SPACE],
       startingMegaCredits: 39,
       resourceType: CardResource.ASTEROID,
 

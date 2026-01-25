@@ -12,7 +12,7 @@ export class EosChasmaNationalPark extends Card implements IProjectCard {
       type: CardType.AUTOMATED,
       name: CardName.EOS_CHASMA_NATIONAL_PARK,
       tags: [Tag.PLANT, Tag.BUILDING],
-      cost: 16,
+      cost: 14,
       victoryPoints: 1,
 
       behavior: {

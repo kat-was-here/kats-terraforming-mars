@@ -10,7 +10,7 @@ export class RedAppeasement extends Card {
     super({
       name: CardName.RED_APPEASEMENT,
       type: CardType.EVENT,
-      cost: 0,
+      cost: 2,
       requirements: {party: PartyName.REDS},
 
       behavior: {

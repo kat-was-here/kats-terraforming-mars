@@ -13,7 +13,7 @@ export class DesignedOrganisms extends Card implements IProjectCard {
       name: CardName.DESIGNED_ORGANISMS,
       cost: 13,
       tags: [Tag.SCIENCE, Tag.PLANT, Tag.MARS],
-      requirements: {tag: Tag.SCIENCE, count: 5},
+      requirements: {tag: Tag.SCIENCE, count: 6},
 
       behavior: {
         production: {plants: 2},
@@ -30,7 +30,7 @@ export class DesignedOrganisms extends Card implements IProjectCard {
           b.production((pb) => pb.plants(2)).plants(3).br;
           b.resource(CardResource.MICROBE, 3).asterix().resource(CardResource.ANIMAL).asterix();
         }),
-        description: 'Requires 5 science tags. Increase your plant production 2 steps. Gain 3 plants. ' +
+        description: 'Requires 6 science tags. Increase your plant production 2 steps. Gain 3 plants. ' +
           'Add 3 microbes to ANY card. Add 1 animal to ANY card.',
       },
     });

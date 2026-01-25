@@ -11,7 +11,7 @@ export class PublicBaths extends Card implements IProjectCard {
       type: CardType.AUTOMATED,
       name: CardName.PUBLIC_BATHS,
       tags: [Tag.BUILDING],
-      cost: 6,
+      cost: 8,
       victoryPoints: 1,
 
       behavior: {

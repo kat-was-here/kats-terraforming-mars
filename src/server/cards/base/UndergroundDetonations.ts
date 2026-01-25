@@ -11,7 +11,7 @@ export class UndergroundDetonations extends ActionCard implements IProjectCard {
       type: CardType.ACTIVE,
       name: CardName.UNDERGROUND_DETONATIONS,
       tags: [Tag.BUILDING],
-      cost: 5,
+      cost: 8,
 
       action: {
         spend: {megacredits: 10},

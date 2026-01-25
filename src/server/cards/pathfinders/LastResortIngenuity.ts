@@ -10,7 +10,7 @@ export class LastResortIngenuity extends Card implements IProjectCard {
     super({
       type: CardType.EVENT,
       name: CardName.LAST_RESORT_INGENUITY,
-      cost: 4,
+      cost: 2,
 
       metadata: {
         cardNumber: 'Pf47',

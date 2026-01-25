@@ -15,7 +15,7 @@ export class ColonyTradeHub extends PreludeCard implements IPreludeCard {
 
       behavior: {
         production: {energy: 1},
-        stock: {titanium: 2},
+        stock: {titanium: 3},
       },
 
       metadata: {
@@ -24,7 +24,7 @@ export class ColonyTradeHub extends PreludeCard implements IPreludeCard {
           b.production((pb) => pb.energy(1)).titanium(2).br;
           b.effect('When any colony is placed, gain 2 M€.', (eb) => eb.colonies(1, {all}).startEffect.megacredits(2));
         }),
-        description: 'Increase your energy production 1 step. Gain 2 titanium',
+        description: 'Increase your energy production 1 step. Gain 3 titanium',
       },
     });
   }

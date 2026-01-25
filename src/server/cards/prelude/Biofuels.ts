@@ -11,16 +11,16 @@ export class Biofuels extends PreludeCard {
 
       behavior: {
         production: {energy: 1, plants: 1},
-        stock: {plants: 2},
+        stock: {plants: 4},
       },
 
       metadata: {
         cardNumber: 'P03',
         renderData: CardRenderer.builder((b) => {
           b.production((pb) => pb.energy(1).plants(1)).br;
-          b.plants(2);
+          b.plants(4);
         }),
-        description: 'Increase your energy and plant production 1 step. Gain 2 plants.',
+        description: 'Increase your energy and plant production 1 step. Gain 4 plants.',
       },
     });
   }

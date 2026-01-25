@@ -10,15 +10,15 @@ export class RiseToPower extends PreludeCard {
 
       behavior: {
         production: {megacredits: 3},
-        turmoil: {sendDelegates: {count: 3, manyParties: true}},
+        turmoil: {sendDelegates: {count: 2, manyParties: true}},
       },
 
       metadata: {
         cardNumber: 'P60',
         renderData: CardRenderer.builder((b) => {
-          b.production((pb) => pb.megacredits(3)).delegates(3).asterix().br;
+          b.production((pb) => pb.megacredits(3)).delegates(2).asterix().br;
         }),
-        description: 'Increase your M€ production 3 steps and place 3 delegates. YOU MAY PLACE THEM IN SEPARATE PARTIES.',
+        description: 'Increase your M€ production 3 steps and place 2 delegates. YOU MAY PLACE THEM IN SEPARATE PARTIES.',
       },
     });
   }

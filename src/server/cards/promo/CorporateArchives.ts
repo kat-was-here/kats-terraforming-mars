@@ -12,12 +12,12 @@ export class CorporateArchives extends PreludeCard {
 
       behavior: {
         drawCard: {count: 6, keep: 2},
-        stock: {megacredits: 11},
+        stock: {megacredits: 10},
       },
 
       metadata: {
         cardNumber: 'X39',
-        description: 'Gain 11 M€.',
+        description: 'Gain 10 M€.',
         renderData: CardRenderer.builder((b) => {
           b.text('Look at the top 6 cards from the deck. Take 2 of them into hand and discard the other 4.', Size.SMALL, true);
           b.br;

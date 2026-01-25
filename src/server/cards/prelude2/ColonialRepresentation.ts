@@ -9,7 +9,7 @@ export class ColonialRepresentation extends Card implements IProjectCard {
     super({
       type: CardType.ACTIVE,
       name: CardName.COLONIAL_REPRESENTATION,
-      cost: 10,
+      cost: 11,
 
       behavior: {
         turmoil: {influenceBonus: 1},

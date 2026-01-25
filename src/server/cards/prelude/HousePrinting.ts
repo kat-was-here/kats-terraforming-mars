@@ -11,7 +11,7 @@ export class HousePrinting extends Card implements IProjectCard {
       type: CardType.AUTOMATED,
       name: CardName.HOUSE_PRINTING,
       tags: [Tag.BUILDING],
-      cost: 10,
+      cost: 14,
 
       behavior: {
         production: {steel: 1},
@@ -21,9 +21,9 @@ export class HousePrinting extends Card implements IProjectCard {
       metadata: {
         cardNumber: 'P36',
         renderData: CardRenderer.builder((b) => {
-          b.production((pb) => pb.steel(1));
+          b.production((pb) => pb.steel(2));
         }),
-        description: 'Increase your steel production 1 step.',
+        description: 'Increase your steel production 2 steps.',
       },
     });
   }

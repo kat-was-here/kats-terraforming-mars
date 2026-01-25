@@ -15,8 +15,8 @@ export class CeresTechMarket extends Card implements IActionCard {
       name: CardName.CERES_TECH_MARKET,
       type: CardType.ACTIVE,
       tags: [Tag.SCIENCE, Tag.SPACE],
-      cost: 12,
-      victoryPoints: 1,
+      cost: 13,
+      victoryPoints: 0,
 
       behavior: {
         stock: {

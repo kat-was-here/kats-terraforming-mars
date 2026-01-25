@@ -29,7 +29,7 @@ export class IndustrialCenter extends ActionCard implements IProjectCard {
       type: CardType.ACTIVE,
       name,
       tags: [Tag.BUILDING],
-      cost: 3,
+      cost: 4,
       adjacencyBonus,
 
       action: {

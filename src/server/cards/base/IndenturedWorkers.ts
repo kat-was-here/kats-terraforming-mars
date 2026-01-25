@@ -17,9 +17,9 @@ export class IndenturedWorkers extends Card implements IProjectCard {
       metadata: {
         cardNumber: '195',
         renderData: CardRenderer.builder((b) => {
-          b.text('next card', Size.SMALL, true).colon().megacredits(-8);
+          b.text('next card', Size.SMALL, true).colon().megacredits(-10);
         }),
-        description: 'The next card you play this generation costs 8 M€ less.',
+        description: 'The next card you play this generation costs 10 M€ less.',
       },
     });
   }

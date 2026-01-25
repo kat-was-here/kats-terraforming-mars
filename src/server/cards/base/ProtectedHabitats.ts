@@ -11,7 +11,7 @@ export class ProtectedHabitats extends Card implements IProjectCard {
     super({
       type: CardType.ACTIVE,
       name: CardName.PROTECTED_HABITATS,
-      cost: 5,
+      cost: 6,
 
       metadata: {
         cardNumber: '173',

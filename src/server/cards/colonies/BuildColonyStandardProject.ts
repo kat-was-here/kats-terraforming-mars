@@ -8,12 +8,12 @@ export class BuildColonyStandardProject extends StandardProjectCard {
   constructor() {
     super({
       name: CardName.BUILD_COLONY_STANDARD_PROJECT,
-      cost: 17,
+      cost: 18,
       metadata: {
         cardNumber: 'SP5',
         renderData: CardRenderer.builder((b) =>
-          b.standardProject('Spend 17 M€ to place a colony.', (eb) => {
-            eb.megacredits(17).startAction.colonies();
+          b.standardProject('Spend 18 M€ to place a colony.', (eb) => {
+            eb.megacredits(18).startAction.colonies();
           }),
         ),
       },

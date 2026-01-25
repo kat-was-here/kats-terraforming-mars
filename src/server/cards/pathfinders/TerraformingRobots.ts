@@ -13,7 +13,7 @@ export class TerraformingRobots extends Card implements IProjectCard {
     super({
       type: CardType.ACTIVE,
       name: CardName.TERRAFORMING_ROBOTS,
-      cost: 10,
+      cost: 11,
       tags: [Tag.SCIENCE],
       resourceType: CardResource.SPECIALIZED_ROBOT,
       requirements: {tag: Tag.SCIENCE, count: 4},

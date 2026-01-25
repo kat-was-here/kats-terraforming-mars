@@ -14,18 +14,18 @@ export class FueledGenerators extends Card implements IProjectCard {
       cost: 8,
 
       behavior: {
-        production: {energy: 5, megacredits: -5},
+        production: {energy: 6, megacredits: -3},
       },
 
       metadata: {
         cardNumber: '100',
         renderData: CardRenderer.builder((b) => {
           b.production((pb) => {
-            pb.minus().megacredits(5).br;
-            pb.plus().energy(5);
+            pb.minus().megacredits(3).br;
+            pb.plus().energy(6);
           });
         }),
-        description: 'Decrease your M€ production 5 steps and increase your energy production 5 steps.',
+        description: 'Decrease your M€ production 3 steps and increase your energy production 6 steps.',
       },
     });
   }

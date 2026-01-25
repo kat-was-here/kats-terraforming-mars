@@ -11,14 +11,14 @@ import {CardRenderer} from '../render/CardRenderer';
 import {Size} from '../../../common/cards/render/Size';
 
 const RENDER_DATA = CardRenderer.builder((b) => {
-  b.minus().megacredits(10).influence({size: Size.SMALL}).planetaryTrack().text('2');
+  b.minus().megacredits(8).influence({size: Size.SMALL}).planetaryTrack().text('2');
 });
 
 export class ConstantStruggle extends GlobalEvent implements IGlobalEvent {
   constructor() {
     super({
       name: GlobalEventName.CONSTANT_STRUGGLE,
-      description: 'Pay 10M€, reduced by 1M€ per influence. Raise every planetary track 2 steps. Nobody gains the "rising player" bonus.',
+      description: 'Pay 8M€, reduced by 1M€ per influence. Raise every planetary track 2 steps. Nobody gains the "rising player" bonus.',
       revealedDelegate: PartyName.KELVINISTS,
       currentDelegate: PartyName.REDS,
       renderData: RENDER_DATA,
@@ -28,7 +28,7 @@ export class ConstantStruggle extends GlobalEvent implements IGlobalEvent {
   public resolve(game: IGame, turmoil: Turmoil) {
     game.playersInGenerationOrder.forEach((player) => {
       const influence = turmoil.getInfluence(player);
-      const deducted = Math.max(10 - influence, 0);
+      const deducted = Math.max(8 - influence, 0);
       player.stock.deduct(Resource.MEGACREDITS, deducted, {log: true, from: {globalEvent: this}});
       if (deducted > 0) {
         PathfindersExpansion.addToSolBank(player);

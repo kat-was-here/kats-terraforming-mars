@@ -71,15 +71,17 @@ class ScientistsPolicy02 implements IPolicy {
 
 class ScientistsPolicy03 implements IPolicy {
   readonly id = 'sp03' as const;
-  readonly description = 'When you raise a global parameter, draw and discard a card per step raised';
+  readonly description = 'When you raise a global parameter, discard a card to draw a card per step raised';
 
   onGlobalParameterIncrease(player: IPlayer, _parameter: GlobalParameter, steps: number) {
-    if (steps > 0) {
+    if (steps > 0 && player.cardsInHand.length > 0) {
       for (let i = 0; i < steps; i++) {
-        // Draw a card first
-        player.drawCard(1);
-        // Then discard a card
-        player.game.defer(new DiscardCards(player, 1));
+        // Discard a card
+        player.game.defer(new DiscardCards(player, 1))
+          .andThen(() => {
+            // Then draw a card
+            player.drawCard(1);
+          });
       }
     }
   }

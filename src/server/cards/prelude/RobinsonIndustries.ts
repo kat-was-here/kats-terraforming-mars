@@ -23,8 +23,8 @@ export class RobinsonIndustries extends CorporationCard implements ICorporationC
           b.br.br.br;
           b.megacredits(47);
           b.corpBox('action', (ce) => {
-            ce.action('Spend 4 M€ to increase (one of) your LOWEST production 1 step.', (eb) => {
-              eb.megacredits(4).startAction.production((pb) => pb.wild(1).asterix());
+            ce.action('Spend 3 M€ to increase (one of) your LOWEST production 1 step.', (eb) => {
+              eb.megacredits(3).startAction.production((pb) => pb.wild(1).asterix());
             });
           });
         }),
@@ -41,7 +41,7 @@ export class RobinsonIndustries extends CorporationCard implements ICorporationC
 
     ALL_RESOURCES.forEach((resource) => {
       const option = new SelectOption('Increase ' + resource + ' production 1 step').andThen(() => {
-        player.game.defer(new SelectPaymentDeferred(player, 4, {title: TITLES.payForCardAction(this.name)}))
+        player.game.defer(new SelectPaymentDeferred(player, 3, {title: TITLES.payForCardAction(this.name)}))
           // Add production after payment, to prevent Manutech from being in the way.
           .andThen(() => player.production.add(resource, 1, {log: true}));
         return undefined;

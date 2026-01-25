@@ -11,7 +11,7 @@ import {CardRenderer} from '../render/CardRenderer';
 export class Casinos extends Card implements IProjectCard {
   constructor() {
     super({
-      cost: 5,
+      cost: 3,
       name: CardName.CASINOS,
       tags: [Tag.BUILDING],
       type: CardType.AUTOMATED,

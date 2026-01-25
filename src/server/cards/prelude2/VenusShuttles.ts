@@ -15,7 +15,7 @@ export class VenusShuttles extends Card implements IActionCard {
       name: CardName.VENUS_SHUTTLES,
       type: CardType.ACTIVE,
       tags: [Tag.VENUS],
-      cost: 12,
+      cost: 13,
 
       behavior: {
         addResourcesToAnyCard: {

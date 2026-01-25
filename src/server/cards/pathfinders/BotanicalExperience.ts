@@ -18,7 +18,7 @@ export class BotanicalExperience extends Card implements IProjectCard {
     super({
       type: CardType.ACTIVE,
       name: CardName.BOTANICAL_EXPERIENCE,
-      cost: 14,
+      cost: 15,
       tags: [Tag.PLANT, Tag.MARS, Tag.SCIENCE],
       requirements: {greeneries: 1, all},
       resourceType: CardResource.DATA,

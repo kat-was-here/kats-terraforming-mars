@@ -38,6 +38,7 @@ export type GameOptions = {
   ceoExtension: boolean;
   starWarsExpansion: boolean;
   underworldExpansion: boolean;
+  societyExpansion: boolean; // NEW: Society party expansion
 
   expansions: Record<Expansion, boolean>,
 
@@ -132,6 +133,7 @@ export const DEFAULT_GAME_OPTIONS: GameOptions = {
   showTimers: true,
   shuffleMapOption: false,
   solarPhaseOption: false,
+  societyExpansion: false, // NEW: Default to false
   soloTR: false,
   startingCeos: constants.CEO_CARDS_DEALT_PER_PLAYER,
   startingCorporations: constants.CORPORATION_CARDS_DEALT_PER_PLAYER,

@@ -15,7 +15,7 @@ export class MediaGroup extends Card implements IProjectCard {
       type: CardType.ACTIVE,
       name: CardName.MEDIA_GROUP,
       tags: [Tag.EARTH],
-      cost: 6,
+      cost: 8,
 
       metadata: {
         cardNumber: '109',

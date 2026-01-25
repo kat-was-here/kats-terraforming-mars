@@ -15,15 +15,15 @@ export class Spire extends CorporationCard implements ICorporationCard {
     super({
       name: CardName.SPIRE,
       tags: [Tag.CITY, Tag.EARTH],
-      startingMegaCredits: 50,
+      startingMegaCredits: 52,
       initialActionText: 'Draw 4 cards, then discard 3 cards.',
       resourceType: CardResource.SCIENCE,
 
       metadata: {
         cardNumber: 'PC05', // Renumber
         renderData: CardRenderer.builder((b) => {
-          b.megacredits(50).plus().cards(4, {digit}).minus().cards(3, {digit}).br,
-          b.plainText('You start with 50 M€. As your first action, draw 4 cards, ' +
+          b.megacredits(52).plus().cards(5, {digit}).minus().cards(3, {digit}).br,
+          b.plainText('You start with 52 M€. As your first action, draw 5 cards, ' +
               'then discard 3 cards from your hand.').br;
 
           b.effect('When you play a card with at least 2 tags. including this, add 1 science resource here.',
@@ -36,7 +36,7 @@ export class Spire extends CorporationCard implements ICorporationCard {
   }
 
   public override initialAction(player: IPlayer) {
-    player.drawCard(4);
+    player.drawCard(5);
     return new SelectCard('Select 3 cards to discard', 'Discard', player.cardsInHand, {min: 3, max: 3})
       .andThen((cards) => {
         for (const card of cards) {

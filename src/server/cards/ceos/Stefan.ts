@@ -4,7 +4,6 @@ import {PlayerInput} from '../../PlayerInput';
 import {CardRenderer} from '../render/CardRenderer';
 import {CeoCard} from './CeoCard';
 import {SelectCard} from '../../inputs/SelectCard';
-import {SelectPaymentDeferred} from '../../deferredActions/SelectPaymentDeferred';
 import {IProjectCard} from '../IProjectCard';
 
 export class Stefan extends CeoCard {
@@ -32,40 +31,37 @@ export class Stefan extends CeoCard {
   public action(player: IPlayer): PlayerInput | undefined {
     const game = player.game;
     
-    // Pay 5 M€ and draw 5 cards
-    game.defer(new SelectPaymentDeferred(player, 5, {
-      title: 'Select how to pay 5 M€',
-    }))
-      .andThen(() => {
-        player.drawCard(5);
-        game.log('${0} paid 5 M€ and drew 5 cards', (b) => b.player(player));
-        
-        // Then prompt to sell cards
-        return new SelectCard<IProjectCard>(
-          'Sell patents for 3 M€ each',
-          'Sell',
-          player.cardsInHand,
-          {min: 0, max: player.cardsInHand.length}
-        ).andThen((cards) => {
-          if (cards.length > 0) {
-            player.megaCredits += cards.length * 3;
-            cards.forEach((card) => {
-              player.discardCardFromHand(card);
-            });
-            game.log('${0} sold ${1} patents for ${2} M€', (b) => 
-              b.player(player).number(cards.length).number(cards.length * 3)
-            );
-          } else {
-            game.log('${0} did not sell any patents', (b) => b.player(player));
-          }
-          
-          // Disable the CEO AFTER everything is complete
-          this.isDisabled = true;
-          
-          return undefined;
-        });
-      });
+    // Pay 5 M€ immediately
+    if (!player.canAfford(5)) {
+      return undefined;
+    }
     
-    return undefined;
+    player.megaCredits -= 5;
+    player.drawCard(5);
+    game.log('${0} paid 5 M€ and drew 5 cards', (b) => b.player(player));
+    
+    // Disable the CEO immediately so it can't be used again
+    this.isDisabled = true;
+    
+    // Now return the sell cards prompt
+    return new SelectCard<IProjectCard>(
+      'Sell patents for 3 M€ each',
+      'Sell',
+      player.cardsInHand,
+      {min: 0, max: player.cardsInHand.length}
+    ).andThen((cards) => {
+      if (cards.length > 0) {
+        player.megaCredits += cards.length * 3;
+        cards.forEach((card) => {
+          player.discardCardFromHand(card);
+        });
+        game.log('${0} sold ${1} patents for ${2} M€', (b) => 
+          b.player(player).number(cards.length).number(cards.length * 3)
+        );
+      } else {
+        game.log('${0} did not sell any patents', (b) => b.player(player));
+      }
+      return undefined;
+    });
   }
 }

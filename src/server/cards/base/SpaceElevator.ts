@@ -11,7 +11,7 @@ export class SpaceElevator extends ActionCard implements IProjectCard {
       type: CardType.ACTIVE,
       name: CardName.SPACE_ELEVATOR,
       tags: [Tag.SPACE, Tag.BUILDING],
-      cost: 27,
+      cost: 28,
 
       behavior: {
         production: {titanium: 1},

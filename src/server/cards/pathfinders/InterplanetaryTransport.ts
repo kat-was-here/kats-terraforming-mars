@@ -11,7 +11,7 @@ export class InterplanetaryTransport extends Card implements IProjectCard {
     super({
       type: CardType.AUTOMATED,
       name: CardName.INTERPLANETARY_TRANSPORT,
-      cost: 15,
+      cost: 12,
       tags: [Tag.EARTH, Tag.JOVIAN, Tag.SPACE],
       victoryPoints: 1,
 

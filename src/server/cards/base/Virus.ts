@@ -19,7 +19,7 @@ export class Virus extends Card implements IProjectCard {
       type: CardType.EVENT,
       name: CardName.VIRUS,
       tags: [Tag.MICROBE],
-      cost: 1,
+      cost: 2,
 
       metadata: {
         cardNumber: '050',

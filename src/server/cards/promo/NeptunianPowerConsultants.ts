@@ -22,7 +22,7 @@ export class NeptunianPowerConsultants extends Card implements IProjectCard {
       type: CardType.ACTIVE,
       name: CardName.NEPTUNIAN_POWER_CONSULTANTS,
       tags: [Tag.POWER],
-      cost: 14,
+      cost: 12,
       resourceType: CardResource.HYDROELECTRIC_RESOURCE,
       victoryPoints: {resourcesHere: {}},
 

@@ -42,6 +42,7 @@ export const DELEGATES_PER_PLAYER = 7;
 export const DELEGATES_FOR_NEUTRAL_PLAYER = 14;
 export const REDS_RULING_POLICY_COST = 3;
 export const POLITICAL_AGENDAS_MAX_ACTION_USES = 3;
+export const SOCIETY_ADDITIONAL_CARD_COST: number = 7;
 
 // Prelude
 export const PRELUDE_CARDS_DEALT_PER_PLAYER = 4;

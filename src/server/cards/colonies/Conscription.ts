@@ -20,16 +20,16 @@ export class Conscription extends Card implements IProjectCard {
       metadata: {
         cardNumber: 'C05',
         renderData: CardRenderer.builder((b) => {
-          b.text('next card', Size.SMALL, true).colon().megacredits(-16);
+          b.text('next card', Size.SMALL, true).colon().megacredits(-18);
         }),
-        description: 'Requires 2 Earth tags. The next card you play this generation costs 16 M€ less.',
+        description: 'Requires 2 Earth tags. The next card you play this generation costs 18 M€ less.',
       },
     });
   }
 
   public override getCardDiscount(player: IPlayer) {
     if (player.lastCardPlayed === this.name) {
-      return 16;
+      return 18;
     }
     return 0;
   }

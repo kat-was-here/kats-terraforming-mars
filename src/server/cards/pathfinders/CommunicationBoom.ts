@@ -19,7 +19,7 @@ export class CommunicationBoom extends GlobalEvent implements IGlobalEvent {
   constructor() {
     super({
       name: GlobalEventName.COMMUNICATION_BOOM,
-      description: 'Pay 10M€. Add 2 data to EVERY data card. Add 1 data to any data card for each influence you have.',
+      description: 'Pay 8M€. Add 2 data to EVERY data card. Add 1 data to any data card for each influence you have.',
       revealedDelegate: PartyName.UNITY,
       currentDelegate: PartyName.SCIENTISTS,
       renderData: RENDER_DATA,
@@ -28,9 +28,9 @@ export class CommunicationBoom extends GlobalEvent implements IGlobalEvent {
 
   public resolve(game: IGame, turmoil: Turmoil) {
     game.playersInGenerationOrder.forEach((player) => {
-      const deducted = Math.min(10, player.megaCredits);
+      const deducted = Math.min(8, player.megaCredits);
       if (deducted > 0) {
-        player.stock.deduct(Resource.MEGACREDITS, 10, {log: true, from: {globalEvent: this}});
+        player.stock.deduct(Resource.MEGACREDITS, 8, {log: true, from: {globalEvent: this}});
         PathfindersExpansion.addToSolBank(player);
       }
       player.getResourceCards(CardResource.DATA).forEach((card) => {

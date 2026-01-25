@@ -15,7 +15,7 @@ export class UrbanizedArea extends Card implements IProjectCard {
       type: CardType.AUTOMATED,
       name: CardName.URBANIZED_AREA,
       tags: [Tag.CITY, Tag.BUILDING],
-      cost: 10,
+      cost: 12,
 
       behavior: {
         production: {energy: -1, megacredits: 2},

@@ -13,16 +13,16 @@ export class BlackPolarDust extends Card implements IProjectCard {
 
       behavior: {
         ocean: {},
-        production: {megacredits: -2, heat: 3},
+        production: {megacredits: -2, titanium: 1}, // changed from heat: 3 → titanium: 1
       },
 
       metadata: {
         cardNumber: '022',
-        description: 'Place an ocean tile. Decrease your M€ production 2 steps and increase your heat production 3 steps.',
+        description: 'Place an ocean tile. Decrease your M€ production 2 steps and increase your titanium production 1 step.',
         renderData: CardRenderer.builder((b) => {
           b.production((pb) => {
             pb.minus().megacredits(2).br;
-            pb.plus().heat(3);
+            pb.plus().titanium(1); // updated to titanium
           }).oceans(1);
         }),
       },

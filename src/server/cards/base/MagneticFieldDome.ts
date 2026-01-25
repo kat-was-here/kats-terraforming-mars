@@ -11,10 +11,10 @@ export class MagneticFieldDome extends Card implements IProjectCard {
       type: CardType.AUTOMATED,
       name: CardName.MAGNETIC_FIELD_DOME,
       tags: [Tag.BUILDING],
-      cost: 5,
+      cost: 7,
 
       behavior: {
-        production: {energy: -2, plants: 1},
+        production: {energy: -1, plants: 1},
         tr: 1,
       },
 
@@ -22,12 +22,12 @@ export class MagneticFieldDome extends Card implements IProjectCard {
         cardNumber: '171',
         renderData: CardRenderer.builder((b) => {
           b.production((pb) => {
-            pb.minus().energy(2).br;
+            pb.minus().energy(1).br;
             pb.plus().plants(1);
           });
           b.tr(1);
         }),
-        description: 'Decrease your energy production 2 steps and increase your plant production 1 step. Raise your TR 1 step.',
+        description: 'Decrease your energy production 1 steps and increase your plant production 1 step. Raise your TR 1 step.',
       },
     });
   }

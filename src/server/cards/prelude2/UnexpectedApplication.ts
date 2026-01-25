@@ -11,7 +11,7 @@ export class UnexpectedApplication extends Card implements IProjectCard {
       name: CardName.UNEXPECTED_APPLICATION,
       type: CardType.EVENT,
       tags: [Tag.VENUS],
-      cost: 4,
+      cost: 5,
 
       behavior: {
         spend: {cards: 1},

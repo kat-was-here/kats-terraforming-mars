@@ -16,7 +16,7 @@ export class CommunicationCenter extends Card implements IProjectCard {
     super({
       type: CardType.ACTIVE,
       name: CardName.COMMUNICATION_CENTER,
-      cost: 8,
+      cost: 11,
       tags: [Tag.SCIENCE, Tag.MARS, Tag.BUILDING],
       resourceType: CardResource.DATA,
 

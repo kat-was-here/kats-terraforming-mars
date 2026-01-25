@@ -12,7 +12,7 @@ export class SpaceRelay extends Card implements IProjectCard {
     super({
       type: CardType.ACTIVE,
       name: CardName.SPACE_RELAY,
-      cost: 13,
+      cost: 18,
       tags: [Tag.SPACE, Tag.JOVIAN],
 
       behavior: {
@@ -27,7 +27,7 @@ export class SpaceRelay extends Card implements IProjectCard {
           }).br;
           b.production((pb) => pb.megacredits(1));
         }),
-        description: 'Increase your M€ production 1 step.',
+        description: 'Increase your M€ production 2 step.',
       },
     });
   }

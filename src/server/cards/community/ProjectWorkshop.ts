@@ -24,7 +24,7 @@ export class ProjectWorkshop extends CorporationCard implements ICorporationCard
     super({
       name: CardName.PROJECT_WORKSHOP,
       tags: [Tag.EARTH],
-      startingMegaCredits: 39,
+      startingMegaCredits: 42,
 
       behavior: {
         stock: {steel: 1, titanium: 1},
@@ -37,9 +37,9 @@ export class ProjectWorkshop extends CorporationCard implements ICorporationCard
 
       metadata: {
         cardNumber: 'R45',
-        description: 'You start with 39 M€, 1 steel and 1 titanium. As your first action, draw two blue cards.',
+        description: 'You start with 42 M€, 1 steel and 1 titanium. As your first action, draw two blue cards.',
         renderData: CardRenderer.builder((b) => {
-          b.megacredits(39).steel(1).titanium(1).cards(1, {secondaryTag: AltSecondaryTag.BLUE});
+          b.megacredits(42).steel(1).titanium(1).cards(1, {secondaryTag: AltSecondaryTag.BLUE});
           b.corpBox('action', (cb) => {
             cb.vSpace(Size.LARGE);
             cb.action(undefined, (eb) => {

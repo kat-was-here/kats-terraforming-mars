@@ -10,7 +10,7 @@ import {ActionCard} from '../ActionCard';
 export class AtmoCollectors extends ActionCard implements IProjectCard {
   constructor() {
     super({
-      cost: 15,
+      cost: 16,
       name: CardName.ATMO_COLLECTORS,
       type: CardType.ACTIVE,
       resourceType: CardResource.FLOATER,

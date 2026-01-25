@@ -10,12 +10,14 @@ import {ColoniesHandler} from '../../colonies/ColoniesHandler';
 import {SelectColony} from '../../inputs/SelectColony';
 import {IColonyTrader} from '../../colonies/IColonyTrader';
 import {IColony} from '../../colonies/IColony';
-import {AddResourcesToCard} from '../../deferredActions/AddResourcesToCard';
+import {SelectCard} from '../../inputs/SelectCard';
+import {MoonCards} from '../../moon/MoonCards';
 import {message} from '../../logs/MessageBuilder';
 
 function tradeCost(player: IPlayer) {
-  return Math.max(0, 3 - player.colonies.tradeDiscount);
+  return Math.max(0, 1 - player.colonies.tradeDiscount);
 }
+
 export class CollegiumCopernicus extends CorporationCard implements ICorporationCard, IActionCard {
   constructor() {
     super({
@@ -35,8 +37,8 @@ export class CollegiumCopernicus extends CorporationCard implements ICorporation
         renderData: CardRenderer.builder((b) => {
           b.br;
           b.megacredits(33).cards(2, {secondaryTag: Tag.SCIENCE}).br;
-          b.effect('When you play a card with a science tag (including this) Add 1 data to ANY card.', (eb) => {
-            eb.tag(Tag.SCIENCE).asterix().startEffect.resource(CardResource.DATA).asterix();
+          b.effect('When you play a card with a science tag (including this), add 1 data OR 1 science resource to ANY card (except those giving 2 VP per science).', (eb) => {
+            eb.tag(Tag.SCIENCE).asterix().startEffect.resource(CardResource.DATA).or().resource(CardResource.SCIENCE).asterix();
           }).br;
           b.action('Spend 1 data from this card to trade.', (eb) => {
             eb.resource(CardResource.DATA, 1).startAction.trade();
@@ -46,9 +48,40 @@ export class CollegiumCopernicus extends CorporationCard implements ICorporation
     });
   }
 
+  private include(card: ICard) {
+    // Eligible cards: data cards OR science cards with <2 VP per science
+    return card.resourceType === CardResource.DATA || MoonCards.scienceCardsWithLessThan2VP.has(card.name);
+  }
+
   public onCardPlayedForCorps(player: IPlayer, card: ICard): void {
     if (player.tags.cardHasTag(card, Tag.SCIENCE) && player.tableau.has(this.name)) {
-      player.game.defer(new AddResourcesToCard(player, CardResource.DATA, {count: 1}));
+      const playableCards = player.playedCards.filter((c) => this.include(c));
+      if (playableCards.length === 0) return;
+
+      if (playableCards.length === 1) {
+        this.addResource(playableCards[0], player);
+        return;
+      }
+
+      player.defer(
+        new SelectCard(
+          'Select card to add 1 data OR 1 science resource',
+          'Add',
+          playableCards,
+        ).andThen(([selected]) => {
+          this.addResource(selected, player);
+          return undefined;
+        }),
+      );
+    }
+  }
+
+  private addResource(card: ICard, player: IPlayer): void {
+    if (card.resourceType === CardResource.DATA) {
+      player.addResourceTo(card, {qty: 1, log: true});
+    }
+    if (card.resourceType === CardResource.SCIENCE) {
+      player.addResourceTo(card, {qty: 1, log: true});
     }
   }
 
@@ -75,6 +108,7 @@ export function tradeWithColony(card: ICard, player: IPlayer, colony: IColony) {
   player.game.log('${0} spent ${1} data from ${2} to trade with ${3}', (b) => b.player(player).number(cost).card(card).colony(colony));
   colony.trade(player);
 }
+
 export class TradeWithCollegiumCopernicus implements IColonyTrader {
   private collegiumCopernicus: ICard | undefined;
 

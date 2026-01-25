@@ -11,7 +11,7 @@ export class SpaceHotels extends Card implements IProjectCard {
       type: CardType.AUTOMATED,
       name: CardName.SPACE_HOTELS,
       tags: [Tag.SPACE, Tag.EARTH],
-      cost: 12,
+      cost: 13,
 
       behavior: {
         production: {megacredits: 4},

@@ -11,7 +11,7 @@ export class WavePower extends Card implements IProjectCard {
       type: CardType.AUTOMATED,
       name: CardName.WAVE_POWER,
       tags: [Tag.POWER],
-      cost: 8,
+      cost: 7,
       victoryPoints: 1,
 
       behavior: {

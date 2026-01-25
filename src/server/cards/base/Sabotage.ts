@@ -16,7 +16,7 @@ export class Sabotage extends Card implements IProjectCard {
     super({
       type: CardType.EVENT,
       name: CardName.SABOTAGE,
-      cost: 1,
+      cost: 2,
 
       metadata: {
         cardNumber: '121',

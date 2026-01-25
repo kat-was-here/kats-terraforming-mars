@@ -11,7 +11,7 @@ export class Satellites extends Card implements IProjectCard {
       type: CardType.AUTOMATED,
       name: CardName.SATELLITES,
       tags: [Tag.SPACE],
-      cost: 10,
+      cost: 12,
 
       behavior: {
         production: {megacredits: {tag: Tag.SPACE}},

@@ -15,7 +15,7 @@ export class MethaneFromTitan extends Card implements IProjectCard {
       victoryPoints: 2,
 
       behavior: {
-        production: {heat: 2, plants: 2},
+        production: {heat: 3, plants: 2},
       },
 
       requirements: {oxygen: 2},
@@ -23,7 +23,7 @@ export class MethaneFromTitan extends Card implements IProjectCard {
         description: 'Requires 2% oxygen. Increase your heat production 2 steps and your plant production 2 steps.',
         cardNumber: '018',
         renderData: CardRenderer.builder((b) => b.production((pb) => {
-          pb.heat(2).br;
+          pb.heat(3).br;
           pb.plants(2);
         })),
       },
