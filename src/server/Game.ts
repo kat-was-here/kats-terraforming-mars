@@ -331,7 +331,7 @@ export class Game implements IGame, Logger {
 
     // Add Turmoil stuff
     if (gameOptions.turmoilExtension) {
-      game.turmoil = Turmoil.newInstance(game, gameOptions.politicalAgendasExtension);
+      game.turmoil = Turmoil.newInstance(game, gameOptions.politicalAgendasExtension, gameOptions.societyExpansion);
     }
 
     // Must configure this before solo placement.

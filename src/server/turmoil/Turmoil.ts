@@ -87,7 +87,7 @@ export class Turmoil {
   public dominantParty: IParty;
   public usedFreeDelegateAction = new Set<IPlayer>();
   public delegateReserve = new MultiSet<Delegate>();
-  public parties = createParties();
+  public parties: ReadonlyArray<IParty>;
   public playersInfluenceBonus = new Map<string, number>();
   public readonly globalEventDealer: GlobalEventDealer;
   public distantGlobalEvent: IGlobalEvent | undefined;
@@ -102,7 +102,9 @@ export class Turmoil {
     rulingPartyName: PartyName,
     chairman: Delegate,
     dominantPartyName: PartyName,
-    globalEventDealer: GlobalEventDealer) {
+    globalEventDealer: GlobalEventDealer,
+    parties: ReadonlyArray<IParty>) {
+    this.parties = parties;
     this.rulingParty = this.getPartyByName(rulingPartyName);
     this.chairman = chairman;
     this.dominantParty = this.getPartyByName(dominantPartyName);
@@ -112,15 +114,15 @@ export class Turmoil {
   public static newInstance(game: IGame, agendaStyle: AgendaStyle = 'Standard', societyExpansion: boolean = false): Turmoil {
     const dealer = GlobalEventDealer.newInstance(game);
 
+    // Init parties with society roulette if enabled
+    const parties = createParties(societyExpansion);
+
     // The game begins with Greens/Spome in power and a Neutral chairman
     const rulingParty = societyExpansion ? PartyName.SPOME : PartyName.GREENS;
-    const turmoil = new Turmoil(rulingParty, 'NEUTRAL', rulingParty, dealer);
+    const turmoil = new Turmoil(rulingParty, 'NEUTRAL', rulingParty, dealer, parties);
 
     game.log('A neutral delegate is the new chairman.');
     game.log(`${turmoil.rulingParty.name} are in power in the first generation.`);
-
-    // Init parties with society roulette if enabled
-    turmoil.parties = createParties(societyExpansion);
 
     game.playersInGenerationOrder.forEach((player) => {
       turmoil.delegateReserve.add(player, DELEGATES_PER_PLAYER);
@@ -612,15 +614,16 @@ export class Turmoil {
   public static deserialize(d: SerializedTurmoil, players: Array<IPlayer>): Turmoil {
     const dealer = GlobalEventDealer.deserialize(d.globalEventDealer);
     const chairman = deserializeDelegateOrUndefined(d.chairman, players);
-    const turmoil = new Turmoil(d.rulingParty, chairman || 'NEUTRAL', d.dominantParty, dealer);
 
     // Reconstruct the parties that were in this game
     // by looking at the serialized party names
     const partyNames = d.parties.map((sp) => sp.name);
-    turmoil.parties = partyNames.map((name) => {
+    const parties = partyNames.map((name) => {
       const PartyClass = ALL_PARTIES[name];
       return new PartyClass();
     });
+
+    const turmoil = new Turmoil(d.rulingParty, chairman || 'NEUTRAL', d.dominantParty, dealer, parties);
 
     turmoil.usedFreeDelegateAction = new Set(d.usedFreeDelegateAction.map((p) => deserializePlayerId(p, players)));
 
