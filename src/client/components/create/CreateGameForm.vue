@@ -169,6 +169,12 @@
                                 <div class="create-game-expansion-icon expansion-icon-underworld"></div>
                                 <span v-i18n>Underworld 2</span><span></span>&nbsp;<a href="https://github.com/terraforming-mars/terraforming-mars/wiki/Underworld" class="tooltip" v-i18n data-tooltip="Link opens in a new tab/window" target="_blank">&#9432;</a>
                             </label>
+
+                            <input type="checkbox" name="society" id="society-checkbox" v-model="expansions.society">
+                            <label for="society-checkbox" class="expansion-button">
+                                <div class="create-game-expansion-icon expansion-icon-society"></div>
+                                <span v-i18n>Society</span>&nbsp;<a href="https://github.com/terraforming-mars/terraforming-mars/wiki/Society" class="tooltip" v-i18n data-tooltip="Link opens in a new tab/window" target="_blank">&#9432;</a>
+                            </label>
                         </div>
 
                         <div class="create-game-page-column">
