@@ -2,12 +2,11 @@ import {IParty} from './IParty';
 import {Party} from './Party';
 import {PartyName} from '../../../common/turmoil/PartyName';
 import {Resource} from '../../../common/Resource';
-import {Bonus, IBonus} from '../Bonus';
+import {IBonus} from '../Bonus';
 import {IPolicy} from '../Policy';
 import {IPlayer} from '../../IPlayer';
 import {IGame} from '../../IGame';
 import {SelectColony} from '../../inputs/SelectColony';
-import {TITLES} from '../../inputs/titles';
 
 export class Centrists extends Party implements IParty {
   readonly name = PartyName.CENTRISTS;
@@ -73,9 +72,15 @@ class CentristsPolicy03 implements IPolicy {
   canAct(player: IPlayer) {
     const game = player.game;
     if (game.gameOptions.coloniesExtension === false) return false;
-    if (player.colonies.getFleetSize() === player.colonies.tradesThisGeneration) return false;
 
+    // Check if player can trade at all
+    if (!player.colonies.canTrade()) return false;
+
+    if (player.colonies.getFleetSize() === player.colonies.usedTradeFleets) return false;
+
+    // Find open colonies
     const openColonies = game.colonies.filter((colony) => colony.isActive && colony.visitor === undefined);
+
     return openColonies.length > 0 && player.turmoilPolicyActionUsed === false;
   }
 
@@ -85,16 +90,15 @@ class CentristsPolicy03 implements IPolicy {
 
     const openColonies = game.colonies.filter((colony) => colony.isActive && colony.visitor === undefined);
 
-    player.defer(new SelectColony('Select colony tile for trade', openColonies).andThen((colony) => {
+    return new SelectColony('Select colony tile for trade', 'Trade', openColonies).andThen((colony) => {
       game.log('${0} traded with ${1}', (b) => b.player(player).colony(colony));
       colony.trade(player);
       player.turmoilPolicyActionUsed = true;
       return undefined;
-    }));
-
-    return undefined;
+    });
   }
 }
+
 
 class CentristsPolicy04 implements IPolicy {
   readonly id = 'cp04' as const;

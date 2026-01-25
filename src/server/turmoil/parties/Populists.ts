@@ -2,7 +2,7 @@ import {IParty} from './IParty';
 import {Party} from './Party';
 import {PartyName} from '../../../common/turmoil/PartyName';
 import {Resource} from '../../../common/Resource';
-import {Bonus, IBonus} from '../Bonus';
+import {IBonus} from '../Bonus';
 import {IPolicy} from '../Policy';
 import {IPlayer} from '../../IPlayer';
 import {ICard} from '../../cards/ICard';
