@@ -51,15 +51,35 @@ export const ALL_PARTIES: Record<PartyName, PartyFactory> = {
 
 function createParties(societyExpansion: boolean = false): ReadonlyArray<IParty> {
   if (societyExpansion) {
-    return [new Spome(), new Empower(), new Populists(), new Bureaucrats(), new Transhumans(), new Centrists()];
+    // Create all 12 parties
+    const allParties: Array<IParty> = [
+      new MarsFirst(),
+      new Scientists(),
+      new Unity(),
+      new Greens(),
+      new Reds(),
+      new Kelvinists(),
+      new Spome(),
+      new Empower(),
+      new Populists(),
+      new Bureaucrats(),
+      new Transhumans(),
+      new Centrists(),
+    ];
+    
+    // Shuffle using Fisher-Yates algorithm for proper randomization
+    for (let i = allParties.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [allParties[i], allParties[j]] = [allParties[j], allParties[i]];
+    }
+    
+    // Return first 6 parties
+    return allParties.slice(0, 6);
   }
+  
+  // Standard game - always use the base 6 parties
   return [new MarsFirst(), new Scientists(), new Unity(), new Greens(), new Reds(), new Kelvinists()];
 }
-
-const UNINITIALIZED_POLITICAL_AGENDAS_DATA: PoliticalAgendasData = {
-  agendas: new Map(),
-  agendaStyle: 'Chairman',
-};
 
 export class Turmoil {
   public chairman: undefined | Delegate = undefined;
@@ -73,14 +93,16 @@ export class Turmoil {
   public distantGlobalEvent: IGlobalEvent | undefined;
   public comingGlobalEvent: IGlobalEvent | undefined;
   public currentGlobalEvent: IGlobalEvent | undefined;
-  public politicalAgendasData: PoliticalAgendasData = UNINITIALIZED_POLITICAL_AGENDAS_DATA;
+  public politicalAgendasData: PoliticalAgendasData = {
+    agendas: new Map(),
+    agendaStyle: 'Chairman',
+  };
 
   private constructor(
     rulingPartyName: PartyName,
-    chairman: PlayerId | 'NEUTRAL',
+    chairman: Delegate,
     dominantPartyName: PartyName,
-    globalEventDealer: GlobalEventDealer,
-    parties: PartyName[]) {
+    globalEventDealer: GlobalEventDealer) {
     this.rulingParty = this.getPartyByName(rulingPartyName);
     this.chairman = chairman;
     this.dominantParty = this.getPartyByName(dominantPartyName);
@@ -93,10 +115,11 @@ export class Turmoil {
     // The game begins with Greens/Spome in power and a Neutral chairman
     const rulingParty = societyExpansion ? PartyName.SPOME : PartyName.GREENS;
     const turmoil = new Turmoil(rulingParty, 'NEUTRAL', rulingParty, dealer);
+
     game.log('A neutral delegate is the new chairman.');
     game.log(`${turmoil.rulingParty.name} are in power in the first generation.`);
 
-    // Init parties
+    // Init parties with society roulette if enabled
     turmoil.parties = createParties(societyExpansion);
 
     game.playersInGenerationOrder.forEach((player) => {
@@ -277,17 +300,6 @@ export class Turmoil {
       // TODO(kberg): if current global event adds an action, all of the rest of this should wait.
       currentGlobalEvent.resolve(game, this);
     }
-
-    // WOW THIS BREAKS THINGS
-    //   this.startNewGovernment(game);
-    // }
-    // private startNewGovernment(game: IGame) {
-    //   if (game.deferredActions.length > 0) {
-    //     game.deferredActions.runAll(() => {
-    //       this.startNewGovernment(game);
-    //     });
-    //     return;
-    //   }
 
     // 3 - New Government
 
@@ -567,11 +579,21 @@ export class Turmoil {
       rulingParty: this.rulingParty.name,
       dominantParty: this.dominantParty.name,
       usedFreeDelegateAction: Array.from(this.usedFreeDelegateAction).map(toID),
-      delegateReserve: Array.from(this.delegateReserve.values()).map(serializeDelegate),
+      delegateReserve: (() => {
+        const reserveArray: Array<SerializedDelegate> = [];
+        this.delegateReserve.forEachMultiplicity((count, delegate) => {
+          Array(count).fill(0).forEach(() => reserveArray.push(serializeDelegate(delegate)));
+        });
+        return reserveArray;
+      })(),
       parties: this.parties.map((p) => {
+        const delegatesArray: Array<SerializedDelegate> = [];
+        p.delegates.forEachMultiplicity((count, delegate) => {
+          Array(count).fill(0).forEach(() => delegatesArray.push(serializeDelegate(delegate)));
+        });
         return {
           name: p.name,
-          delegates: Array.from(p.delegates.values()).map(serializeDelegate),
+          delegates: delegatesArray,
           partyLeader: serializeDelegateOrUndefined(p.partyLeader),
         };
       }),
@@ -591,6 +613,15 @@ export class Turmoil {
     const dealer = GlobalEventDealer.deserialize(d.globalEventDealer);
     const chairman = deserializeDelegateOrUndefined(d.chairman, players);
     const turmoil = new Turmoil(d.rulingParty, chairman || 'NEUTRAL', d.dominantParty, dealer);
+
+    // Reconstruct the parties that were in this game
+    // by looking at the serialized party names
+    const partyNames = d.parties.map((sp) => sp.name);
+    turmoil.parties = partyNames.map((name) => {
+      const PartyClass = ALL_PARTIES[name];
+      return new PartyClass();
+    });
+
     turmoil.usedFreeDelegateAction = new Set(d.usedFreeDelegateAction.map((p) => deserializePlayerId(p, players)));
 
     turmoil.delegateReserve = MultiSet.from(d.delegateReserve.map((p) => deserializeDelegate(p, players)));
