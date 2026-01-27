@@ -198,7 +198,17 @@ export class Turmoil {
   }
 
   public sendDelegateToParty(delegate: Delegate, partyName: PartyName, game: IGame, throwIfError = false): void {
-    const party = this.getPartyByName(partyName);
+    let party;
+    try {
+      party = this.getPartyByName(partyName);
+    } catch (error) {
+      if (throwIfError) {
+        throw error;
+      }
+      // Party not available in this game (e.g., due to Society party roulette)
+      return;
+    }
+    
     if (this.delegateReserve.has(delegate)) {
       this.delegateReserve.remove(delegate);
     } else {
@@ -218,10 +228,15 @@ export class Turmoil {
    * Will re-evaluate the dominant party.
    */
   public removeDelegateFromParty(delegate: Delegate, partyName: PartyName, game: IGame): void {
-    const party = this.getPartyByName(partyName);
-    this.delegateReserve.add(delegate);
-    party.removeDelegate(delegate, game);
-    this.checkDominantParty();
+    try {
+      const party = this.getPartyByName(partyName);
+      this.delegateReserve.add(delegate);
+      party.removeDelegate(delegate, game);
+      this.checkDominantParty();
+    } catch (error) {
+      // Party not available in this game (e.g., due to Society party roulette)
+      // Skip removing the delegate
+    }
   }
 
   /**
@@ -335,8 +350,13 @@ export class Turmoil {
 
   private addNeutralDelegate(partyName: PartyName | undefined, game: IGame) {
     if (partyName) {
-      this.sendDelegateToParty('NEUTRAL', partyName, game);
-      game.log('A neutral delegate was added to the ${0} party', (b) => b.partyName(partyName));
+      try {
+        this.sendDelegateToParty('NEUTRAL', partyName, game);
+        game.log('A neutral delegate was added to the ${0} party', (b) => b.partyName(partyName));
+      } catch (error) {
+        // Party not available in this game (e.g., due to Society party roulette)
+        // Skip adding the delegate silently
+      }
     }
   }
 
