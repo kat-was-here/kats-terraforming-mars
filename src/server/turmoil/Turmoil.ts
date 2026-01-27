@@ -118,7 +118,12 @@ export class Turmoil {
     const parties = createParties(societyExpansion);
 
     // The game begins with Greens/Spome in power and a Neutral chairman
-    const rulingParty = societyExpansion ? PartyName.SPOME : PartyName.GREENS;
+    const preferredRulingParty = societyExpansion ? PartyName.SPOME : PartyName.GREENS;
+    
+    // Check if the preferred ruling party is in the selected parties
+    const hasPreferredParty = parties.some(party => party.name === preferredRulingParty);
+    const rulingParty = hasPreferredParty ? preferredRulingParty : parties[Math.floor(Math.random() * parties.length)].name;
+    
     const turmoil = new Turmoil(rulingParty, 'NEUTRAL', rulingParty, dealer, parties);
 
     game.log('A neutral delegate is the new chairman.');
